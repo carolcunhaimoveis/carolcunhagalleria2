@@ -645,8 +645,7 @@ function Landing() {
                     )}
 
                     <p className="lf-micro">
-                      Seus dados serão utilizados somente para entrar em contato sobre o Alto do Galleria II de
-                      Nova Odessa.
+                      Seus dados serão utilizados somente para entrar em contato sobre o Alto do Galleria II.
                     </p>
                     <p className="lf-privacy">
                       Ao continuar, você concorda com nossa{" "}
@@ -689,8 +688,8 @@ function Landing() {
                         <option value="">Selecione uma opção (opcional)</option>
                         <option value="Comprar para morar">Comprar para morar</option>
                         <option value="Comprar para investir">Comprar para investir</option>
-                        <option value="Comprar para construir no futuro">
-                          Comprar para construir no futuro
+                        <option value="Comprar meu primeiro apartamento">
+                          Comprar meu primeiro apartamento
                         </option>
                         <option value="Ainda estou pesquisando">Ainda estou pesquisando</option>
                       </select>
