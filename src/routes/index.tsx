@@ -34,6 +34,8 @@ import { enrichLead, submitLead } from "../lib/lead-proxy";
 import { captureUtmParams, readUtmParams } from "../lib/utm";
 import { trackEvent } from "../lib/events";
 import { initPixel, fireLeadEvent } from "../lib/pixel";
+import { TestimonialsCarousel } from "../components/TestimonialsCarousel";
+import { TESTIMONIALS } from "../data/testimonials";
 
 // ── Máscara de telefone: (00) 0000-0000 ou (00) 00000-0000 ──────────────────
 function maskPhone(value: string): string {
@@ -541,6 +543,13 @@ function Landing() {
     <>
       <FlarePicker />
       <div dangerouslySetInnerHTML={{ __html: BODY_HTML }} />
+
+      <TestimonialsCarousel
+        title="Praticidade para realizar o primeiro imóvel"
+        description="Relatos ilustrativos sobre localização, condições e qualidade de vida no Alto do Galleria II."
+        testimonials={TESTIMONIALS}
+        spriteOffset={1}
+      />
 
       {/* Apresentação da Carol */}
       <section className="sec carol-sec" id="carol">
