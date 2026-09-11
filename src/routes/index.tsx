@@ -60,7 +60,7 @@ function icon(Icon: LucideIcon): string {
   return renderToStaticMarkup(
     createElement(Icon, {
       "aria-hidden": true,
-      className: "lp-icon size-[1em] shrink-0",
+      className: "lp-icon size-[1em] shrink-0 text-[var(--gd)]",
       strokeWidth: 1.8,
     }),
   );
@@ -723,7 +723,7 @@ function Landing() {
                 <div className="lead-form" aria-live="polite">
                   <div className="lf-step-head">
                     <span className="lf-step-check" aria-hidden="true">
-                      <CircleCheck className="size-5" strokeWidth={2} />
+                      <CircleCheck className="size-5 text-[var(--gd)]" strokeWidth={2} />
                     </span>
                     <div>
                       <h3>Perfeito! Seu contato já foi enviado.</h3>
@@ -825,7 +825,7 @@ function Landing() {
               rel="noopener noreferrer"
               className="ig-link"
             >
-              <Instagram className="size-[1em] shrink-0" aria-hidden="true" />
+              <Instagram className="size-[1em] shrink-0 text-[var(--gd)]" aria-hidden="true" />
               @carolcunha.imoveis
             </a>
           </div>

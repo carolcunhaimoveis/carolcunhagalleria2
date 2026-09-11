@@ -172,7 +172,7 @@ function PoliticaDePrivacidade() {
                   </p>
                   {/* TODO: Atualizar esta seção caso ferramentas analíticas sejam implementadas */}
                   <p className="pp-todo">
-                    <TriangleAlert className="inline size-4 shrink-0" aria-hidden="true" />{" "}
+                    <TriangleAlert className="inline size-4 shrink-0 text-[var(--gd)]" aria-hidden="true" />{" "}
                     <strong>TODO:</strong> Atualizar caso Google Analytics, Meta Pixel ou
                     similares sejam implementados.
                   </p>
