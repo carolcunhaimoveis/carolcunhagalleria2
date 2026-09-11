@@ -87,10 +87,7 @@ export function TestimonialsCarousel({
             })}
           </div>
 
-          <div className="mt-3 flex items-center justify-between gap-4">
-            <p className="text-xs leading-5 text-[var(--txm)]">
-              Fotos e relatos ilustrativos para composição da página.
-            </p>
+          <div className="mt-3 flex items-center justify-end gap-4">
             <div className="flex shrink-0 gap-2">
               <button
                 type="button"
