@@ -546,7 +546,6 @@ function Landing() {
 
       <TestimonialsCarousel
         title="Praticidade para realizar o primeiro imóvel"
-        description="Relatos ilustrativos sobre localização, condições e qualidade de vida no Alto do Galleria II."
         testimonials={TESTIMONIALS}
         spriteOffset={1}
       />
