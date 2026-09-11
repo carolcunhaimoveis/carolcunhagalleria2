@@ -35,6 +35,7 @@ import { captureUtmParams, readUtmParams } from "../lib/utm";
 import { trackEvent } from "../lib/events";
 import { initPixel, fireLeadEvent } from "../lib/pixel";
 import { TestimonialsCarousel } from "../components/TestimonialsCarousel";
+import { FamilyExperienceSection } from "../components/FamilyExperienceSection";
 import { TESTIMONIALS } from "../data/testimonials";
 
 // ── Máscara de telefone: (00) 0000-0000 ou (00) 00000-0000 ──────────────────
@@ -163,14 +164,12 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       {
         property: "og:image",
-        content:
-          "https://carolcunhagalleria2.lovable.app/images/galleria-10.webp",
+        content: "https://carolcunhagalleria2.lovable.app/images/galleria-10.webp",
       },
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:image",
-        content:
-          "https://carolcunhagalleria2.lovable.app/images/galleria-10.webp",
+        content: "https://carolcunhagalleria2.lovable.app/images/galleria-10.webp",
       },
     ],
     links: [
@@ -544,6 +543,28 @@ function Landing() {
       <FlarePicker />
       <div dangerouslySetInnerHTML={{ __html: BODY_HTML }} />
 
+      <FamilyExperienceSection
+        title="Um novo jeito de viver Campinas"
+        description="Espaços contemporâneos para compartilhar a rotina, contemplar a cidade e aproveitar cada momento em família."
+        images={[
+          {
+            src: "/images/family-visit-01.png",
+            alt: "Família conhecendo os ambientes do apartamento",
+            caption: "Ambientes que acolhem a rotina",
+          },
+          {
+            src: "/images/family-visit-02.png",
+            alt: "Família contemplando a vista da varanda",
+            caption: "Uma nova vista para Campinas",
+          },
+          {
+            src: "/images/family-visit-03.png",
+            alt: "Família conhecendo a área de lazer do condomínio",
+            caption: "Lazer para aproveitar juntos",
+          },
+        ]}
+      />
+
       <TestimonialsCarousel
         title="Praticidade para realizar o primeiro imóvel"
         testimonials={TESTIMONIALS}
@@ -573,8 +594,8 @@ function Landing() {
               </h2>
               <p className="carol-bio">
                 Sou Carol Cunha, corretora de imóveis. Posso te apresentar as condições disponíveis,
-                tirar  suas dúvidas e te ajudar a avaliar se o Alto do Galleria II combina
-                com seus planos.
+                tirar suas dúvidas e te ajudar a avaliar se o Alto do Galleria II combina com seus
+                planos.
               </p>
               <ul className="carol-benefits">
                 <li>Atendimento personalizado</li>
@@ -711,7 +732,8 @@ function Landing() {
                     )}
 
                     <p className="lf-micro">
-                      Seus dados serão utilizados somente para entrar em contato sobre o Alto do Galleria II.
+                      Seus dados serão utilizados somente para entrar em contato sobre o Alto do
+                      Galleria II.
                     </p>
                     <p className="lf-privacy">
                       Ao continuar, você concorda com nossa{" "}
@@ -838,7 +860,9 @@ function Landing() {
             </a>
           </div>
           <p style={{ marginTop: 6, color: "var(--txm)", fontSize: ".72rem" }}>
-            O Alto do Galleria II é um lançamento da Zuma Engenharia. Áreas, vagas, valores, prazo de entrega, disponibilidade e enquadramento em programas habitacionais devem ser confirmados no atendimento. Perspectivas artísticas sujeitas a alterações.
+            O Alto do Galleria II é um lançamento da Zuma Engenharia. Áreas, vagas, valores, prazo
+            de entrega, disponibilidade e enquadramento em programas habitacionais devem ser
+            confirmados no atendimento. Perspectivas artísticas sujeitas a alterações.
           </p>
         </div>
       </footer>
