@@ -568,7 +568,6 @@ function Landing() {
       <TestimonialsCarousel
         title="Praticidade para realizar o primeiro imóvel"
         testimonials={TESTIMONIALS}
-        spriteOffset={1}
       />
 
       {/* Apresentação da Carol */}

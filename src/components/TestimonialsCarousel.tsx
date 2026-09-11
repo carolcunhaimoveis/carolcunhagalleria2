@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 export interface Testimonial {
   name: string;
   quote: string;
+  image: string;
 }
 
 interface TestimonialsCarouselProps {
@@ -11,8 +12,6 @@ interface TestimonialsCarouselProps {
   title: string;
   description: string;
   testimonials: Testimonial[];
-  spriteSrc?: string;
-  spriteOffset?: number;
 }
 
 export function TestimonialsCarousel({
@@ -20,8 +19,6 @@ export function TestimonialsCarousel({
   title,
   description,
   testimonials,
-  spriteSrc = "/images/testimonials-mockup.png",
-  spriteOffset = 0,
 }: TestimonialsCarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null);
 
@@ -55,25 +52,20 @@ export function TestimonialsCarousel({
             aria-label="Depoimentos"
             tabIndex={0}
           >
-            {testimonials.map((testimonial, index) => {
-              const spriteIndex = (index + spriteOffset) % testimonials.length;
-              const column = spriteIndex % 5;
-              const row = Math.floor(spriteIndex / 5);
+            {testimonials.map((testimonial) => {
               return (
                 <article
                   key={testimonial.name}
                   data-testimonial-card
                   className="flex w-[84vw] max-w-[310px] shrink-0 snap-start flex-col items-center rounded-2xl border border-[var(--bdw)] bg-[var(--bgc)] px-6 py-7 text-center shadow-[0_18px_50px_rgba(0,0,0,.18)] md:w-[calc((100%_-_40px)/3)]"
                 >
-                  <div
-                    className="mb-4 size-24 rounded-full border-2 border-[var(--gd)] bg-cover shadow-[0_0_0_5px_rgba(212,167,106,.10)]"
-                    style={{
-                      backgroundImage: `url(${spriteSrc})`,
-                      backgroundSize: "500% 200%",
-                      backgroundPosition: `${column * 25}% ${row * 100}%`,
-                    }}
-                    role="img"
-                    aria-label={`Foto ilustrativa de ${testimonial.name}`}
+                  <img
+                    className="mb-4 size-24 rounded-full border-2 border-[var(--gd)] object-cover shadow-[0_0_0_5px_rgba(212,167,106,.10)]"
+                    src={testimonial.image}
+                    alt={`Foto ilustrativa de ${testimonial.name}`}
+                    loading="lazy"
+                    width={96}
+                    height={96}
                   />
                   <h3 className="mb-3 text-base font-bold text-[var(--tx)]">{testimonial.name}</h3>
                   <Quote
