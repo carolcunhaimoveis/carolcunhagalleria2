@@ -1,5 +1,35 @@
 import { createFileRoute, useRouter } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { createElement, useEffect, useRef, useState } from "react";
+import {
+  Accessibility,
+  ArrowUpDown,
+  Baby,
+  BedDouble,
+  Building2,
+  Car,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  CircleCheck,
+  ClipboardList,
+  CreditCard,
+  Dumbbell,
+  ExternalLink,
+  Handshake,
+  House,
+  Instagram,
+  KeyRound,
+  Landmark,
+  MapPin,
+  Ruler,
+  ShieldCheck,
+  Snowflake,
+  TrendingUp,
+  Utensils,
+  Waves,
+  type LucideIcon,
+} from "lucide-react";
+import { renderToStaticMarkup } from "react-dom/server";
 import { enrichLead, submitLead } from "../lib/lead-proxy";
 import { captureUtmParams, readUtmParams } from "../lib/utm";
 import { trackEvent } from "../lib/events";
@@ -26,10 +56,19 @@ function isValidName(name: string): boolean {
 const WA =
   "https://wa.me/5519986107562?text=Ol%C3%A1%2C%20vi%20o%20site%20do%20Alto do Galleria II%20de%20Nova%20Odessa%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es";
 
+function icon(Icon: LucideIcon): string {
+  return renderToStaticMarkup(
+    createElement(Icon, {
+      "aria-hidden": true,
+      className: "lp-icon size-[1em] shrink-0",
+      strokeWidth: 1.8,
+    }),
+  );
+}
 // ─── HTML estático completo ────────────────────────────────────────────────────
 const BODY_HTML = `<div class="flare-bg" aria-hidden="true"></div><div class="fw" aria-hidden="true"><div class="fl f1"></div><div class="fl f2"></div><div class="fl f3"></div><div class="fl f4"></div></div>
 <div class="w">
-<nav><div class="c ni"><a href="#" class="lo">Carol <span>Cunha</span></a><ul class="nl"><li><a href="#sobre">Diferenciais</a></li><li><a href="#galeria">Galeria</a></li><li><a href="#experiencia">Tour 360°</a></li><li><a href="#lazer">Lazer</a></li><li><a href="#local">Localização</a></li><li><a href="https://www.instagram.com/carolcunha.imoveis/" target="_blank" rel="noopener" class="ig-link"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>@carolcunha.imoveis</a></li>
+<nav><div class="c ni"><a href="#" class="lo">Carol <span>Cunha</span></a><ul class="nl"><li><a href="#sobre">Diferenciais</a></li><li><a href="#galeria">Galeria</a></li><li><a href="#experiencia">Tour 360°</a></li><li><a href="#lazer">Lazer</a></li><li><a href="#local">Localização</a></li><li><a href="https://www.instagram.com/carolcunha.imoveis/" target="_blank" rel="noopener" class="ig-link">${icon(Instagram)}@carolcunha.imoveis</a></li>
 <li><a href="#contato" class="nc">Fale comigo</a></li></ul></div></nav>
 
 <!-- 1. HERO -->
@@ -40,9 +79,9 @@ const BODY_HTML = `<div class="flare-bg" aria-hidden="true"></div><div class="fw
       <h1 class="h2h1">Apartamentos de <span class="nt">41,39 a 42,66 m²</span> perto do Galleria Shopping</h1>
       <p class="h2sub">2 dormitórios, varanda integrada e lazer completo no Jardim Conceição, em Campinas.</p>
       <ul class="h2pills">
-        <li><span class="h2pill">🛏️ 2 dormitórios</span></li>
-        <li><span class="h2pill">📍 Campinas/SP</span></li>
-        <li><span class="h2pill">🚗 Opções com vaga coberta</span></li>
+        <li><span class="h2pill">${icon(BedDouble)} 2 dormitórios</span></li>
+        <li><span class="h2pill">${icon(MapPin)} Campinas/SP</span></li>
+        <li><span class="h2pill">${icon(Car)} Opções com vaga coberta</span></li>
       </ul>
       <a href="#contato" class="btn bg h2cta">QUERO RECEBER VALORES E CONDIÇÕES</a>
       <p class="h2micro">Atendimento direto com Carol Cunha • Corretora de Imóveis</p>
@@ -63,13 +102,13 @@ const BODY_HTML = `<div class="flare-bg" aria-hidden="true"></div><div class="fw
 </section>
 
 <!-- 1.5. POR QUE CONHECER -->
-<section class="sec pq-sec" id="porque"><div class="c"><div class="sh"><span class="slb">Uma escolha que faz sentido</span><h2 class="st">Por que o <span class="nt">Alto do Galleria II</span>?</h2></div><div class="pq-grid"><div class="pq-item rv2"><span class="pq-icon">🏠</span><h3>Plantas de 41,39 a 42,66 m²</h3><p>Tipologias de ponta e meio, com varanda e ambientes integrados.</p></div><div class="pq-item rv2"><span class="pq-icon">🏊</span><h3>Lazer completo</h3><p>Piscinas, academia, playground, espaço multiuso e salão gourmet.</p></div><div class="pq-item rv2"><span class="pq-icon">🏢</span><h3>Torre única</h3><p>108 apartamentos, dois elevadores e acesso controlado.</p></div><div class="pq-item rv2"><span class="pq-icon">📍</span><h3>Perto de tudo</h3><p>A 1,8 km do Galleria Shopping e a 2 km da Lagoa do Taquaral.</p></div></div><div class="pq-cta"><a href="#contato" class="btn bg">QUERO RECEBER VALORES E CONDIÇÕES</a></div></div></section>
+<section class="sec pq-sec" id="porque"><div class="c"><div class="sh"><span class="slb">Uma escolha que faz sentido</span><h2 class="st">Por que o <span class="nt">Alto do Galleria II</span>?</h2></div><div class="pq-grid"><div class="pq-item rv2"><span class="pq-icon">${icon(House)}</span><h3>Plantas de 41,39 a 42,66 m²</h3><p>Tipologias de ponta e meio, com varanda e ambientes integrados.</p></div><div class="pq-item rv2"><span class="pq-icon">${icon(Waves)}</span><h3>Lazer completo</h3><p>Piscinas, academia, playground, espaço multiuso e salão gourmet.</p></div><div class="pq-item rv2"><span class="pq-icon">${icon(Building2)}</span><h3>Torre única</h3><p>108 apartamentos, dois elevadores e acesso controlado.</p></div><div class="pq-item rv2"><span class="pq-icon">${icon(MapPin)}</span><h3>Perto de tudo</h3><p>A 1,8 km do Galleria Shopping e a 2 km da Lagoa do Taquaral.</p></div></div><div class="pq-cta"><a href="#contato" class="btn bg">QUERO RECEBER VALORES E CONDIÇÕES</a></div></div></section>
 
 <!-- 2. PRINCIPAIS DIFERENCIAIS -->
-<section class="sec" id="sobre"><div class="c"><div class="sh"><span class="slb">O Empreendimento</span><h2 class="st">Seu apartamento perto de <span class="nt">tudo</span></h2><p class="sd">Um lançamento da Zuma Engenharia com espaços funcionais, lazer equipado e localização estratégica em Campinas.</p></div><div class="cards"><div class="card rv2"><div class="ci ci-g">📐</div><h3>Plantas inteligentes</h3><p>Apartamentos de 41,39 a 42,66 m², com dois dormitórios e varanda integrada.</p><span class="ct">Ponta e meio</span></div><div class="card rv2"><div class="ci ci-r">🍽️</div><h3>Ambientes integrados</h3><p>Cozinha e área de serviço conectadas à sala de estar e jantar.</p><span class="ct">Mais funcionalidade</span></div><div class="card rv2"><div class="ci ci-a">🏢</div><h3>Condomínio compacto</h3><p>Torre única com 108 unidades e dois elevadores.</p><span class="ct">Projeto funcional</span></div><div class="card rv2"><div class="ci ci-e">❄️</div><h3>Conforto preparado</h3><p>Previsão para ar-condicionado no dormitório do casal.</p><span class="ct">Mais conforto</span></div><div class="card rv2"><div class="ci ci-g">🚗</div><h3>Opções de vagas</h3><p>Unidades com vaga de carro, moto ou carro e moto. Consulte disponibilidade.</p><span class="ct">Conforme a unidade</span></div><div class="card rv2"><div class="ci ci-r">📈</div><h3>Localização valorizada</h3><p>Jardim Conceição, próximo ao Galleria Shopping e à Rodovia Dom Pedro I.</p><span class="ct">Campinas/SP</span></div></div></div></section>
+<section class="sec" id="sobre"><div class="c"><div class="sh"><span class="slb">O Empreendimento</span><h2 class="st">Seu apartamento perto de <span class="nt">tudo</span></h2><p class="sd">Um lançamento da Zuma Engenharia com espaços funcionais, lazer equipado e localização estratégica em Campinas.</p></div><div class="cards"><div class="card rv2"><div class="ci ci-g">${icon(Ruler)}</div><h3>Plantas inteligentes</h3><p>Apartamentos de 41,39 a 42,66 m², com dois dormitórios e varanda integrada.</p><span class="ct">Ponta e meio</span></div><div class="card rv2"><div class="ci ci-r">${icon(Utensils)}</div><h3>Ambientes integrados</h3><p>Cozinha e área de serviço conectadas à sala de estar e jantar.</p><span class="ct">Mais funcionalidade</span></div><div class="card rv2"><div class="ci ci-a">${icon(Building2)}</div><h3>Condomínio compacto</h3><p>Torre única com 108 unidades e dois elevadores.</p><span class="ct">Projeto funcional</span></div><div class="card rv2"><div class="ci ci-e">${icon(Snowflake)}</div><h3>Conforto preparado</h3><p>Previsão para ar-condicionado no dormitório do casal.</p><span class="ct">Mais conforto</span></div><div class="card rv2"><div class="ci ci-g">${icon(Car)}</div><h3>Opções de vagas</h3><p>Unidades com vaga de carro, moto ou carro e moto. Consulte disponibilidade.</p><span class="ct">Conforme a unidade</span></div><div class="card rv2"><div class="ci ci-r">${icon(TrendingUp)}</div><h3>Localização valorizada</h3><p>Jardim Conceição, próximo ao Galleria Shopping e à Rodovia Dom Pedro I.</p><span class="ct">Campinas/SP</span></div></div></div></section>
 
 <!-- 3. SEÇÃO VISUAL DE DESEJO -->
-<section class="sec vd-sec" id="galeria"><div class="c"><div class="sh"><span class="slb">O Empreendimento em Imagens</span><h2 class="st">Conheça cada <span class="nt">ambiente</span></h2><p class="sd">Perspectivas artísticas do decorado, áreas comuns, fachada e plantas.</p></div><div class="vd-wrap"><button class="vd-btn vd-pv" id="vd-prev" aria-label="Foto anterior">&#10094;</button><div class="vd-grid rv2" id="vd-track" aria-label="Galeria de imagens do Alto do Galleria II">
+<section class="sec vd-sec" id="galeria"><div class="c"><div class="sh"><span class="slb">O Empreendimento em Imagens</span><h2 class="st">Conheça cada <span class="nt">ambiente</span></h2><p class="sd">Perspectivas artísticas do decorado, áreas comuns, fachada e plantas.</p></div><div class="vd-wrap"><button class="vd-btn vd-pv" id="vd-prev" aria-label="Foto anterior">${icon(ChevronLeft)}</button><div class="vd-grid rv2" id="vd-track" aria-label="Galeria de imagens do Alto do Galleria II">
 <figure class="vd-main"><img loading="lazy" decoding="async" width="1283" height="1600" src="/images/galleria-10.webp" alt="Fachada e entrada do Alto do Galleria II"><figcaption class="vd-label">Fachada e entrada</figcaption></figure>
 <figure class="vd-thumb"><img loading="lazy" decoding="async" width="1600" height="900" src="/images/galleria-02.webp" alt="Sala de estar do apartamento decorado"><figcaption class="vd-label">Sala de estar</figcaption></figure>
 <figure class="vd-thumb"><img loading="lazy" decoding="async" width="1600" height="1283" src="/images/galleria-03.webp" alt="Dormitório principal do apartamento decorado"><figcaption class="vd-label">Dormitório principal</figcaption></figure>
@@ -82,25 +121,25 @@ const BODY_HTML = `<div class="flare-bg" aria-hidden="true"></div><div class="fw
 <figure class="vd-thumb"><img loading="lazy" decoding="async" width="1283" height="1600" src="/images/galleria-09.webp" alt="Perspectiva da torre única"><figcaption class="vd-label">Torre única</figcaption></figure>
 <figure class="vd-thumb vd-plan"><img loading="lazy" decoding="async" width="708" height="465" src="/images/galleria-11.webp" alt="Planta do apartamento de centro"><figcaption class="vd-label">Planta de meio</figcaption></figure>
 <figure class="vd-thumb vd-plan"><img loading="lazy" decoding="async" width="528" height="521" src="/images/galleria-12.webp" alt="Planta do apartamento de ponta"><figcaption class="vd-label">Planta de ponta</figcaption></figure>
-</div><button class="vd-btn vd-nx" id="vd-next" aria-label="Próxima foto">&#10095;</button></div><p class="vd-disclaimer">Imagens e perspectivas artísticas meramente ilustrativas, sujeitas a alterações.</p></div></section>
+</div><button class="vd-btn vd-nx" id="vd-next" aria-label="Próxima foto">${icon(ChevronRight)}</button></div><p class="vd-disclaimer">Imagens e perspectivas artísticas meramente ilustrativas, sujeitas a alterações.</p></div></section>
 
 <!-- 3.5. EXPERIÊNCIA IMERSIVA -->
 <section class="sec exp-sec" id="experiencia"><div class="c"><div class="sh"><span class="slb">Visite sem sair de casa</span><h2 class="st">Explore o decorado em <span class="nt">vídeo e 360°</span></h2><p class="sd">Conheça os ambientes com mais detalhes antes de agendar sua visita.</p></div><div class="exp-grid">
-<article class="exp-card rv2"><div class="exp-frame"><iframe src="https://www.youtube-nocookie.com/embed/a9h7DsbSoJA?rel=0" title="Vídeo de apresentação do Alto do Galleria II" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><div class="exp-copy"><span class="exp-kicker">Apresentação</span><h3>Veja o empreendimento em vídeo</h3><p>Uma visão rápida do projeto, ambientes e proposta do Alto do Galleria II.</p><a class="exp-link" href="https://youtu.be/a9h7DsbSoJA" target="_blank" rel="noopener noreferrer">Abrir vídeo em nova guia ↗</a></div></article>
-<article class="exp-card rv2"><div class="exp-frame"><iframe src="https://tour360.meupasseiovirtual.com/071013/299212/tourvirtual/index.html" title="Tour virtual 360 graus do apartamento decorado" loading="lazy" allow="fullscreen; gyroscope; accelerometer" allowfullscreen></iframe></div><div class="exp-copy"><span class="exp-kicker">Tour virtual</span><h3>Caminhe pelo decorado em 360°</h3><p>Arraste a imagem para navegar pelos ambientes do apartamento.</p><a class="exp-link" href="https://tour360.meupasseiovirtual.com/071013/299212/tourvirtual/index.html" target="_blank" rel="noopener noreferrer">Abrir tour em tela cheia ↗</a></div></article>
+<article class="exp-card rv2"><div class="exp-frame"><iframe src="https://www.youtube-nocookie.com/embed/a9h7DsbSoJA?rel=0" title="Vídeo de apresentação do Alto do Galleria II" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><div class="exp-copy"><span class="exp-kicker">Apresentação</span><h3>Veja o empreendimento em vídeo</h3><p>Uma visão rápida do projeto, ambientes e proposta do Alto do Galleria II.</p><a class="exp-link" href="https://youtu.be/a9h7DsbSoJA" target="_blank" rel="noopener noreferrer">Abrir vídeo em nova guia ${icon(ExternalLink)}</a></div></article>
+<article class="exp-card rv2"><div class="exp-frame"><iframe src="https://tour360.meupasseiovirtual.com/071013/299212/tourvirtual/index.html" title="Tour virtual 360 graus do apartamento decorado" loading="lazy" allow="fullscreen; gyroscope; accelerometer" allowfullscreen></iframe></div><div class="exp-copy"><span class="exp-kicker">Tour virtual</span><h3>Caminhe pelo decorado em 360°</h3><p>Arraste a imagem para navegar pelos ambientes do apartamento.</p><a class="exp-link" href="https://tour360.meupasseiovirtual.com/071013/299212/tourvirtual/index.html" target="_blank" rel="noopener noreferrer">Abrir tour em tela cheia ${icon(ExternalLink)}</a></div></article>
 </div></div></section>
 
 <!-- 4. LAZER E INFRAESTRUTURA -->
-<section class="sec" id="lazer"><div class="c"><div class="sh"><span class="slb">Lazer &amp; Infraestrutura</span><h2 class="st">Conforto para <span class="nt">todos os dias</span></h2><p class="sd">Espaços planejados para convivência, bem-estar e qualidade de vida.</p></div><div class="lz-grid"><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="480" height="300" src="/images/galleria-08.webp" alt="Piscina adulto e deck"></div><div class="lz-info"><span class="lz-icon">🏊</span><h3>Piscinas</h3><p>Piscinas adulto e infantil integradas ao deck.</p></div></div><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="480" height="300" src="/images/galleria-06.webp" alt="Salão Gourmet"></div><div class="lz-info"><span class="lz-icon">🍽️</span><h3>Salão Gourmet</h3><p>Espaço com churrasqueira para receber bem.</p></div></div><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="480" height="300" src="/images/galleria-07.webp" alt="Academia"></div><div class="lz-info"><span class="lz-icon">🏋️</span><h3>Academia</h3><p>Ambiente planejado para uma rotina mais ativa.</p></div></div><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="480" height="300" src="/images/galleria-05.webp" alt="Playground"></div><div class="lz-info"><span class="lz-icon">🧒</span><h3>Playground</h3><p>Diversão e convivência para as crianças.</p></div></div></div><div class="lz-infra rv2"><div class="lz-infra-head"><span class="slb">Diferenciais</span><h3 class="lz-infra-title">Detalhes pensados para o dia a dia</h3></div><div class="lz-infra-grid"><div class="lz-inf-item"><span>🛡</span><span>Guarita e acesso controlado</span></div><div class="lz-inf-item"><span>🚶</span><span>Acessos separados para pedestres e veículos</span></div><div class="lz-inf-item"><span>🛗</span><span>Dois elevadores</span></div><div class="lz-inf-item"><span>❄️</span><span>Previsão para ar-condicionado no quarto do casal</span></div></div></div><div class="lz-cta"><a href="#contato" class="btn bg">QUERO RECEBER VALORES E CONDIÇÕES</a></div></div></section>
+<section class="sec" id="lazer"><div class="c"><div class="sh"><span class="slb">Lazer &amp; Infraestrutura</span><h2 class="st">Conforto para <span class="nt">todos os dias</span></h2><p class="sd">Espaços planejados para convivência, bem-estar e qualidade de vida.</p></div><div class="lz-grid"><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="480" height="300" src="/images/galleria-08.webp" alt="Piscina adulto e deck"></div><div class="lz-info"><span class="lz-icon">${icon(Waves)}</span><h3>Piscinas</h3><p>Piscinas adulto e infantil integradas ao deck.</p></div></div><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="480" height="300" src="/images/galleria-06.webp" alt="Salão Gourmet"></div><div class="lz-info"><span class="lz-icon">${icon(Utensils)}</span><h3>Salão Gourmet</h3><p>Espaço com churrasqueira para receber bem.</p></div></div><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="480" height="300" src="/images/galleria-07.webp" alt="Academia"></div><div class="lz-info"><span class="lz-icon">${icon(Dumbbell)}</span><h3>Academia</h3><p>Ambiente planejado para uma rotina mais ativa.</p></div></div><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="480" height="300" src="/images/galleria-05.webp" alt="Playground"></div><div class="lz-info"><span class="lz-icon">${icon(Baby)}</span><h3>Playground</h3><p>Diversão e convivência para as crianças.</p></div></div></div><div class="lz-infra rv2"><div class="lz-infra-head"><span class="slb">Diferenciais</span><h3 class="lz-infra-title">Detalhes pensados para o dia a dia</h3></div><div class="lz-infra-grid"><div class="lz-inf-item"><span>${icon(ShieldCheck)}</span><span>Guarita e acesso controlado</span></div><div class="lz-inf-item"><span>${icon(Accessibility)}</span><span>Acessos separados para pedestres e veículos</span></div><div class="lz-inf-item"><span>${icon(ArrowUpDown)}</span><span>Dois elevadores</span></div><div class="lz-inf-item"><span>${icon(Snowflake)}</span><span>Previsão para ar-condicionado no quarto do casal</span></div></div></div><div class="lz-cta"><a href="#contato" class="btn bg">QUERO RECEBER VALORES E CONDIÇÕES</a></div></div></section>
 
 <!-- 5. LOCALIZAÇÃO -->
-<section class="sec" id="local"><div class="c"><div class="loc-layout"><div class="loc-text"><span class="slb">Localização</span><h2 class="st">Perto do que importa em <span class="nt">Campinas</span></h2><p class="loc-desc">No Jardim Conceição, próximo ao Galleria Shopping, à Lagoa do Taquaral e à Rodovia Dom Pedro I.</p><div class="loc-addr rv2"><span class="loc-pin">📍</span><div><strong>Jardim Conceição — Campinas/SP</strong><span>Rua Antônio Pavin, 227</span></div></div><div class="loc-cards"><div class="loc-card rv2"><span class="loc-time">1,8 km</span><span class="loc-name">Galleria Shopping</span><span class="loc-via">Compras e gastronomia</span></div><div class="loc-card rv2"><span class="loc-time">2 km</span><span class="loc-name">Lagoa do Taquaral</span><span class="loc-via">Lazer ao ar livre</span></div><div class="loc-card rv2"><span class="loc-time">1,2 km</span><span class="loc-name">Dalben</span><span class="loc-via">Supermercado</span></div><div class="loc-card rv2"><span class="loc-time">50 m</span><span class="loc-name">Posto de saúde</span><span class="loc-via">Serviços próximos</span></div></div><div class="loc-cta"><a href="#contato" class="btn bg">QUERO RECEBER VALORES E CONDIÇÕES</a></div></div><div class="loc-map"><iframe title="Localização Alto do Galleria II" src="https://www.google.com/maps?q=Rua%20Ant%C3%B4nio%20Pavin%2C%20227%2C%20Jardim%20Concei%C3%A7%C3%A3o%2C%20Campinas%2C%20SP&output=embed" style="border:0;width:100%;height:100%;display:block" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div></div></section>
+<section class="sec" id="local"><div class="c"><div class="loc-layout"><div class="loc-text"><span class="slb">Localização</span><h2 class="st">Perto do que importa em <span class="nt">Campinas</span></h2><p class="loc-desc">No Jardim Conceição, próximo ao Galleria Shopping, à Lagoa do Taquaral e à Rodovia Dom Pedro I.</p><div class="loc-addr rv2"><span class="loc-pin">${icon(MapPin)}</span><div><strong>Jardim Conceição — Campinas/SP</strong><span>Rua Antônio Pavin, 227</span></div></div><div class="loc-cards"><div class="loc-card rv2"><span class="loc-time">1,8 km</span><span class="loc-name">Galleria Shopping</span><span class="loc-via">Compras e gastronomia</span></div><div class="loc-card rv2"><span class="loc-time">2 km</span><span class="loc-name">Lagoa do Taquaral</span><span class="loc-via">Lazer ao ar livre</span></div><div class="loc-card rv2"><span class="loc-time">1,2 km</span><span class="loc-name">Dalben</span><span class="loc-via">Supermercado</span></div><div class="loc-card rv2"><span class="loc-time">50 m</span><span class="loc-name">Posto de saúde</span><span class="loc-via">Serviços próximos</span></div></div><div class="loc-cta"><a href="#contato" class="btn bg">QUERO RECEBER VALORES E CONDIÇÕES</a></div></div><div class="loc-map"><iframe title="Localização Alto do Galleria II" src="https://www.google.com/maps?q=Rua%20Ant%C3%B4nio%20Pavin%2C%20227%2C%20Jardim%20Concei%C3%A7%C3%A3o%2C%20Campinas%2C%20SP&output=embed" style="border:0;width:100%;height:100%;display:block" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div></div></section>
 
 <!-- 6. CONDIÇÕES COMERCIAIS -->
-<section class="sec" id="condicoes"><div class="c"><div class="sh"><span class="slb">Formas de Aquisição</span><h2 class="st">Planeje a <span class="nt">sua compra</span></h2><p class="sd">Receba informações atualizadas e uma análise personalizada.</p></div><div class="cond-grid"><div class="cond-item rv2"><div class="cond-icon">🏠</div><h3>Minha Casa Minha Vida</h3><p>Consulte os benefícios aplicáveis ao seu perfil.</p></div><div class="cond-item rv2"><div class="cond-icon">💳</div><h3>Simulação personalizada</h3><p>Simule a entrada e as parcelas do financiamento.</p></div><div class="cond-item rv2"><div class="cond-icon">🔑</div><h3>Primeiro imóvel</h3><p>Acompanhamento pessoal na organização da documentação.</p></div><div class="cond-item rv2"><div class="cond-icon">🤝</div><h3>Assessoria completa</h3><p>Assessoria total, desde a simulação até a assinatura.</p></div></div><p class="cond-nota rv2">Confirme no atendiimento valores, disponibilidade, financiamento e condições comerciais vigentes.</p></div></section>
+<section class="sec" id="condicoes"><div class="c"><div class="sh"><span class="slb">Formas de Aquisição</span><h2 class="st">Planeje a <span class="nt">sua compra</span></h2><p class="sd">Receba informações atualizadas e uma análise personalizada.</p></div><div class="cond-grid"><div class="cond-item rv2"><div class="cond-icon">${icon(House)}</div><h3>Minha Casa Minha Vida</h3><p>Consulte os benefícios aplicáveis ao seu perfil.</p></div><div class="cond-item rv2"><div class="cond-icon">${icon(CreditCard)}</div><h3>Simulação personalizada</h3><p>Simule a entrada e as parcelas do financiamento.</p></div><div class="cond-item rv2"><div class="cond-icon">${icon(KeyRound)}</div><h3>Primeiro imóvel</h3><p>Acompanhamento pessoal na organização da documentação.</p></div><div class="cond-item rv2"><div class="cond-icon">${icon(Handshake)}</div><h3>Assessoria completa</h3><p>Assessoria total, desde a simulação até a assinatura.</p></div></div><p class="cond-nota rv2">Confirme no atendiimento valores, disponibilidade, financiamento e condições comerciais vigentes.</p></div></section>
 
 <!-- 7. SEGURANÇA JURÍDICA -->
-<section class="sec" id="juridico"><div class="c"><div class="sh"><span class="slb">Transparência</span><h2 class="st">Suporte para uma decisão <span class="nt">segura</span></h2><p class="sd">Conte com atendimento profissional para validar disponibilidade, documentação e condições vigentes.</p></div><div class="jur-grid"><div class="jur-item rv2"><span class="jur-icon">📋</span><div><h4>Disponibilidade</h4><p>Unidades e condições são confirmadas no momento do atendimento.</p></div></div><div class="jur-item rv2"><span class="jur-icon">🏦</span><div><h4>Crédito e financiamento</h4><p>Sujeitos à análise e às regras da instituição financeira ou programa aplicável.</p></div></div><div class="jur-item rv2"><span class="jur-icon">✅</span><div><h4>Atendimento responsável</h4><p>Receba orientação para conferir todos os documentos antes da compra.</p></div></div></div><details class="jur-more rv2"><summary class="jur-toggle">VER AVISO IMPORTANTE <span class="jur-arr">&#8964;</span></summary><div class="jur-full"><p>O Alto do Galleria II é um lançamento da Zuma Engenharia. Áreas, vagas, valores, prazo de entrega, disponibilidade e enquadramento em programas habitacionais devem ser confirmados no atendimento. Perspectivas artísticas sujeitas a alterações.</p></div></details></div></section>
+<section class="sec" id="juridico"><div class="c"><div class="sh"><span class="slb">Transparência</span><h2 class="st">Suporte para uma decisão <span class="nt">segura</span></h2><p class="sd">Conte com atendimento profissional para validar disponibilidade, documentação e condições vigentes.</p></div><div class="jur-grid"><div class="jur-item rv2"><span class="jur-icon">${icon(ClipboardList)}</span><div><h4>Disponibilidade</h4><p>Unidades e condições são confirmadas no momento do atendimento.</p></div></div><div class="jur-item rv2"><span class="jur-icon">${icon(Landmark)}</span><div><h4>Crédito e financiamento</h4><p>Sujeitos à análise e às regras da instituição financeira ou programa aplicável.</p></div></div><div class="jur-item rv2"><span class="jur-icon">${icon(CircleCheck)}</span><div><h4>Atendimento responsável</h4><p>Receba orientação para conferir todos os documentos antes da compra.</p></div></div></div><details class="jur-more rv2"><summary class="jur-toggle">VER AVISO IMPORTANTE <span class="jur-arr">${icon(ChevronDown)}</span></summary><div class="jur-full"><p>O Alto do Galleria II é um lançamento da Zuma Engenharia. Áreas, vagas, valores, prazo de entrega, disponibilidade e enquadramento em programas habitacionais devem ser confirmados no atendimento. Perspectivas artísticas sujeitas a alterações.</p></div></details></div></section>
 </div>`;
 
 export const Route = createFileRoute("/")({
@@ -684,7 +723,7 @@ function Landing() {
                 <div className="lead-form" aria-live="polite">
                   <div className="lf-step-head">
                     <span className="lf-step-check" aria-hidden="true">
-                      ✓
+                      <CircleCheck className="size-5" strokeWidth={2} />
                     </span>
                     <div>
                       <h3>Perfeito! Seu contato já foi enviado.</h3>
@@ -786,7 +825,7 @@ function Landing() {
               rel="noopener noreferrer"
               className="ig-link"
             >
-              <IgSvg />
+              <Instagram className="size-[1em] shrink-0" aria-hidden="true" />
               @carolcunha.imoveis
             </a>
           </div>
@@ -807,23 +846,6 @@ function Landing() {
     </>
   );
 }
-
-function WaSvg() {
-  return (
-    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-    </svg>
-  );
-}
-
-function IgSvg() {
-  return (
-    <svg viewBox="0 0 24 24">
-      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-    </svg>
-  );
-}
-
 // ── FlarePicker (inalterado) ───────────────────────────────────────────────────
 const PRESETS = ["gold", "blue", "purple", "green", "pink"] as const;
 type Preset = (typeof PRESETS)[number];

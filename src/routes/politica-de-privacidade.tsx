@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { TriangleAlert } from "lucide-react";
 
 export const Route = createFileRoute("/politica-de-privacidade")({
   head: () => ({
@@ -171,7 +172,8 @@ function PoliticaDePrivacidade() {
                   </p>
                   {/* TODO: Atualizar esta seção caso ferramentas analíticas sejam implementadas */}
                   <p className="pp-todo">
-                    ⚠ <strong>TODO:</strong> Atualizar caso Google Analytics, Meta Pixel ou
+                    <TriangleAlert className="inline size-4 shrink-0" aria-hidden="true" />{" "}
+                    <strong>TODO:</strong> Atualizar caso Google Analytics, Meta Pixel ou
                     similares sejam implementados.
                   </p>
                 </section>

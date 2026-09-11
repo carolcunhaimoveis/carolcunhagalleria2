@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect } from "react";
+import { ArrowLeft, CircleCheck } from "lucide-react";
 import { trackEvent } from "../lib/events";
 import { readUtmParams } from "../lib/utm";
 
@@ -50,7 +51,8 @@ function Obrigada() {
               Carol <span>Cunha</span>
             </Link>
             <Link to="/" className="btn bh tks-nav-back">
-              ← Voltar ao site
+              <ArrowLeft className="size-4 shrink-0" aria-hidden="true" />
+              Voltar ao site
             </Link>
           </div>
         </nav>
@@ -61,7 +63,7 @@ function Obrigada() {
             <div className="tks-card rv2">
               {/* Ícone de confirmação */}
               <div className="tks-icon" aria-hidden="true">
-                ✅
+                <CircleCheck className="size-12" strokeWidth={1.8} />
               </div>
 
               {/* Títulos */}
