@@ -10,7 +10,7 @@ export interface Testimonial {
 interface TestimonialsCarouselProps {
   eyebrow?: string;
   title: string;
-  description: string;
+  description?: string;
   testimonials: Testimonial[];
 }
 
@@ -40,7 +40,7 @@ export function TestimonialsCarousel({
           <h2 className="st" id="testimonials-title">
             {title}
           </h2>
-          <p className="sd">{description}</p>
+          {description && <p className="sd">{description}</p>}
         </div>
 
         <div className="relative">
