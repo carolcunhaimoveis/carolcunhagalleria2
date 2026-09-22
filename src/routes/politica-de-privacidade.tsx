@@ -61,8 +61,8 @@ function PoliticaDePrivacidade() {
                     Esta Política de Privacidade se aplica ao site{" "}
                     <strong>carolcunhagalleria2.lovable.app</strong>, operado por{" "}
                     <strong>Carol Cunha</strong>, corretora de imóveis, responsável exclusivamente
-                    através deste site pelo atendimento comercial relacionado ao loteamento Alto do Galleria II
-                    de Nova Odessa, localizado em Nova Odessa/SP.
+                    através deste site pelo atendimento comercial relacionado ao loteamento Alto do
+                    Galleria II de Nova Odessa, localizado em Nova Odessa/SP.
                   </p>
                 </section>
 
@@ -96,8 +96,8 @@ function PoliticaDePrivacidade() {
                   <p>Os dados coletados são usados exclusivamente para:</p>
                   <ul>
                     <li>
-                      Entrar em contato com o interessado para fornecer informações sobre o Alto do Galleria II
-                      de Nova Odessa;
+                      Entrar em contato com o interessado para fornecer informações sobre o Alto do
+                      Galleria II de Nova Odessa;
                     </li>
                     <li>Apresentar valores, condições de pagamento e disponibilidade de lotes;</li>
                     <li>Agendar visitas ou atendimentos personalizados, quando solicitado.</li>
@@ -172,9 +172,12 @@ function PoliticaDePrivacidade() {
                   </p>
                   {/* TODO: Atualizar esta seção caso ferramentas analíticas sejam implementadas */}
                   <p className="pp-todo">
-                    <TriangleAlert className="inline size-4 shrink-0 text-[var(--am)]" aria-hidden="true" />{" "}
-                    <strong>TODO:</strong> Atualizar caso Google Analytics, Meta Pixel ou
-                    similares sejam implementados.
+                    <TriangleAlert
+                      className="inline size-4 shrink-0 text-[var(--am)]"
+                      aria-hidden="true"
+                    />{" "}
+                    <strong>TODO:</strong> Atualizar caso Google Analytics, Meta Pixel ou similares
+                    sejam implementados.
                   </p>
                 </section>
 

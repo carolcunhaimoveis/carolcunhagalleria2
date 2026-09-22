@@ -78,9 +78,7 @@ function Obrigada() {
               </div>
 
               {/* Texto secundário */}
-              <p className="tks-secondary">
-                Em breve entrarei em contato pelos dados informados.
-              </p>
+              <p className="tks-secondary">Em breve entrarei em contato pelos dados informados.</p>
             </div>
           </div>
         </div>
