@@ -289,8 +289,8 @@ function Landing() {
       // 1. Evento interno de funil
       trackEvent("form_submit_success", {
         section: "contato",
-        utm_source: readUtmParams().utm_source,
-        utm_campaign: readUtmParams().utm_campaign,
+        utm_source: readUtmParams()["utm_source"],
+        utm_campaign: readUtmParams()["utm_campaign"],
       });
       // 2. Meta Pixel Lead — SOMENTE aqui, após resposta positiva do servidor
       fireLeadEvent();
