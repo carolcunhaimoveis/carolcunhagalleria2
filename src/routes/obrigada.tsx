@@ -51,7 +51,7 @@ function Obrigada() {
               Carol <span>Cunha</span>
             </Link>
             <Link to="/" className="btn bh tks-nav-back">
-              <ArrowLeft className="size-4 shrink-0 text-[var(--gd)]" aria-hidden="true" />
+              <ArrowLeft className="size-4 shrink-0 text-[var(--am)]" aria-hidden="true" />
               Voltar ao site
             </Link>
           </div>
@@ -63,7 +63,7 @@ function Obrigada() {
             <div className="tks-card rv2">
               {/* Ícone de confirmação */}
               <div className="tks-icon" aria-hidden="true">
-                <CircleCheck className="size-12 text-[var(--gd)]" strokeWidth={1.8} />
+                <CircleCheck className="size-12 text-[var(--am)]" strokeWidth={1.8} />
               </div>
 
               {/* Títulos */}
