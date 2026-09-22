@@ -937,8 +937,8 @@ function FlarePicker() {
           type="color"
           defaultValue={
             typeof window !== "undefined"
-              ? localStorage.getItem("flare-custom") || "#ffcd78"
-              : "#ffcd78"
+              ? localStorage.getItem("flare-custom") || "#BF70FF"
+              : "#BF70FF"
           }
           onChange={(e) => applyCustom(e.target.value)}
         />

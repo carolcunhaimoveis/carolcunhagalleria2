@@ -148,9 +148,9 @@ html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx);line-height:1.6;overflow-x:hidden}
 .fw{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
 .fl{position:absolute;border-radius:50%;filter:blur(140px);will-change:transform}
-.f1{width:700px;height:700px;opacity:.18;background:radial-gradient(circle,var(--gd),transparent 70%);animation:f1 22s ease-in-out infinite}
+.f1{width:700px;height:700px;opacity:1;background:radial-gradient(circle,rgba(191,112,255,.16),transparent 70%);animation:f1 22s ease-in-out infinite}
 .f2{width:550px;height:550px;opacity:.14;background:radial-gradient(circle,var(--rs),transparent 70%);animation:f2 26s ease-in-out infinite}
-.f3{width:500px;height:500px;opacity:.12;background:radial-gradient(circle,var(--am),transparent 70%);animation:f3 20s ease-in-out infinite}
+.f3{width:500px;height:500px;opacity:1;background:radial-gradient(circle,rgba(167,139,250,.14),transparent 70%);animation:f3 20s ease-in-out infinite}
 .f4{width:600px;height:600px;opacity:.1;background:radial-gradient(circle,var(--em),transparent 70%);animation:f4 28s ease-in-out infinite}
 @keyframes f1{0%{transform:translate(-5vw,15vh)}25%{transform:translate(45vw,5vh) scale(1.15)}50%{transform:translate(85vw,45vh) scale(.9)}75%{transform:translate(25vw,75vh) scale(1.1)}to{transform:translate(-5vw,15vh)}}
 @keyframes f2{0%{transform:translate(90vw,55vh)}25%{transform:translate(55vw,85vh) scale(.85)}50%{transform:translate(5vw,35vh) scale(1.1)}75%{transform:translate(35vw,0) scale(.95)}to{transform:translate(90vw,55vh)}}
@@ -293,7 +293,7 @@ body[data-flare="pink"]{--flare-1-core:255,160,200;--flare-1-mid:230,90,150;--fl
 .flare-picker button{width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.2);cursor:pointer;padding:0;transition:transform .15s}
 .flare-picker button:hover{transform:scale(1.15)}
 .flare-picker button.a{border-color:#fff}
-.fp-gold{background:radial-gradient(circle,#ffcd78,#ffa032)}
+.fp-gold{background:radial-gradient(circle,#BF70FF,#A78BFA)}
 .fp-blue{background:radial-gradient(circle,#78b4ff,#3c78e6)}
 .fp-purple{background:radial-gradient(circle,#c88cff,#9650dc)}
 .fp-green{background:radial-gradient(circle,#96f0b4,#46c878)}
