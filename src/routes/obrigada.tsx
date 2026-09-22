@@ -27,8 +27,8 @@ function Obrigada() {
     const utms = readUtmParams();
     trackEvent("thank_you_view", {
       section: "obrigada",
-      utm_source: utms.utm_source,
-      utm_campaign: utms.utm_campaign,
+      utm_source: utms["utm_source"],
+      utm_campaign: utms["utm_campaign"],
     });
   }, []);
   return (

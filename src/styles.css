@@ -283,10 +283,7 @@ footer a{color:var(--tx2);text-decoration:none}footer a:hover{color:var(--gd)}
 @keyframes flareB{0%{transform:translate(0,0) scale(1)}50%{transform:translate(-50vw,-20vh) scale(1.2)}100%{transform:translate(-20vw,-60vh) scale(.95)}}
 
 /* Flare theme presets — apply via <body data-flare="gold|blue|purple|green|pink"> */
-body[data-flare="blue"]{--flare-1-core:120,180,255;--flare-1-mid:60,120,230;--flare-2-core:150,210,255;--flare-2-mid:70,140,220}
-body[data-flare="purple"]{--flare-1-core:200,140,255;--flare-1-mid:150,80,220;--flare-2-core:220,170,255;--flare-2-mid:170,100,230}
-body[data-flare="green"]{--flare-1-core:150,240,180;--flare-1-mid:70,200,120;--flare-2-core:180,255,200;--flare-2-mid:90,210,140}
-body[data-flare="pink"]{--flare-1-core:255,160,200;--flare-1-mid:230,90,150;--flare-2-core:255,190,220;--flare-2-mid:240,120,170}
+body[data-flare="blue"],body[data-flare="purple"],body[data-flare="green"],body[data-flare="pink"]{--flare-1-core:191,112,255;--flare-1-mid:191,112,255;--flare-2-core:167,139,250;--flare-2-mid:167,139,250}
 
 /* Flare picker widget */
 .flare-picker{position:fixed;right:16px;bottom:16px;z-index:9999;display:flex;gap:8px;padding:8px 10px;background:rgba(20,20,28,.7);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.1);border-radius:999px;font-family:Inter,sans-serif}
@@ -294,10 +291,7 @@ body[data-flare="pink"]{--flare-1-core:255,160,200;--flare-1-mid:230,90,150;--fl
 .flare-picker button:hover{transform:scale(1.15)}
 .flare-picker button.a{border-color:#fff}
 .fp-gold{background:radial-gradient(circle,#BF70FF,#A78BFA)}
-.fp-blue{background:radial-gradient(circle,#78b4ff,#3c78e6)}
-.fp-purple{background:radial-gradient(circle,#c88cff,#9650dc)}
-.fp-green{background:radial-gradient(circle,#96f0b4,#46c878)}
-.fp-pink{background:radial-gradient(circle,#ffa0c8,#e65a96)}
+.fp-blue,.fp-purple,.fp-green,.fp-pink{background:radial-gradient(circle,#BF70FF,#A78BFA)}
 .flare-picker label{width:22px;height:22px;border-radius:50%;border:2px solid rgba(255,255,255,.2);cursor:pointer;overflow:hidden;position:relative;background:conic-gradient(red,orange,yellow,green,cyan,blue,magenta,red)}
 .flare-picker label input{position:absolute;inset:0;opacity:0;cursor:pointer}
 .w{position:relative;z-index:1}

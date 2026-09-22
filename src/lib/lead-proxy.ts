@@ -56,13 +56,13 @@ export const submitLead = createServerFn({ method: "POST" })
     if (data.utms) {
       try {
         const u = JSON.parse(data.utms) as Record<string, string>;
-        utmSource = u.utm_source || undefined;
-        utmMedium = u.utm_medium || undefined;
-        utmCampaign = u.utm_campaign || undefined;
-        utmContent = u.utm_content || undefined;
-        utmTerm = u.utm_term || undefined;
+        utmSource = u["utm_source"] || undefined;
+        utmMedium = u["utm_medium"] || undefined;
+        utmCampaign = u["utm_campaign"] || undefined;
+        utmContent = u["utm_content"] || undefined;
+        utmTerm = u["utm_term"] || undefined;
         // fbclid pode ser muito longo — trunca no cliente também por precaução
-        fbclid = u.fbclid ? u.fbclid.slice(0, 500) : undefined;
+        fbclid = u["fbclid"] ? u["fbclid"].slice(0, 500) : undefined;
       } catch {
         // JSON inválido — ignora silenciosamente, UTMs ficam undefined
         console.warn("[leads] utms parse failed, continuando sem UTMs");
