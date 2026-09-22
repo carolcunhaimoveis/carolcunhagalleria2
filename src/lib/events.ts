@@ -24,6 +24,7 @@ export type FunnelEvent =
   | "form_start"
   | "form_submit_success"
   | "form_submit_error"
+  | "lead_qualification_success"
   | "whatsapp_click"
   | "thank_you_view";
 
@@ -31,23 +32,23 @@ export type FunnelEvent =
 
 export interface EventProps {
   /** Identificador da seção onde o evento ocorreu, ex: "hero", "localização" */
-  section?: string;
+  section?: string | undefined;
   /** Rótulo descritivo do elemento, ex: "hero_cta", "wa_form_button" */
-  label?: string;
+  label?: string | undefined;
   /** Posição no funil: "top" | "mid" | "bottom" */
   funnel_position?: "top" | "mid" | "bottom";
   /** Campo do formulário que foi tocado primeiro */
-  first_field?: string;
+  first_field?: string | undefined;
   /** Parcela selecionada — não é PII */
-  parcela?: string;
+  parcela?: string | undefined;
   /** Objetivo selecionado — não é PII */
-  objetivo?: string;
+  objetivo?: string | undefined;
   /** utm_source capturado — não é PII */
-  utm_source?: string;
+  utm_source?: string | undefined;
   /** utm_campaign capturado — não é PII */
-  utm_campaign?: string;
+  utm_campaign?: string | undefined;
   /** Mensagem de erro genérica — sem detalhes do servidor */
-  error_type?: string;
+  error_type?: string | undefined;
 }
 
 // ── Tipo do dataLayer ─────────────────────────────────────────────────────────

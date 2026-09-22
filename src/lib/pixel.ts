@@ -36,7 +36,7 @@ declare global {
 
 // ── Pixel ID via variável de ambiente ────────────────────────────────────────
 
-const PIXEL_ID = import.meta.env.VITE_META_PIXEL_ID as string | undefined;
+const PIXEL_ID = import.meta.env["VITE_META_PIXEL_ID"] as string | undefined;
 
 /** true somente se o ID estiver configurado e não for string vazia */
 const isEnabled = (): boolean => typeof PIXEL_ID === "string" && PIXEL_ID.trim().length > 0;
@@ -72,7 +72,8 @@ export function initPixel(): void {
   const first = document.getElementsByTagName("script")[0];
   first?.parentNode?.insertBefore(script, first);
 
-  window.fbq("init", PIXEL_ID!.trim());
+  if (!PIXEL_ID) return;
+  window.fbq("init", PIXEL_ID.trim());
   window.fbq("track", "PageView");
   window.fbq("track", "ViewContent", {
     content_name: "Terras de Nova Odessa",
