@@ -60,7 +60,7 @@ export function TestimonialsCarousel({
                   className="flex w-[84vw] max-w-[310px] shrink-0 snap-start flex-col items-center rounded-2xl border border-[var(--bdw)] bg-[var(--bgc)] px-6 py-7 text-center shadow-[0_18px_50px_rgba(0,0,0,.18)] md:w-[calc((100%_-_40px)/3)]"
                 >
                   <img
-                    className="mb-4 size-24 rounded-full border-2 border-[var(--gd)] object-cover shadow-[0_0_0_5px_rgba(212,167,106,.10)]"
+                    className="mb-4 size-24 rounded-full border-2 border-[var(--gd)] object-cover shadow-[0_0_0_5px_rgba(167,139,250,.10)]"
                     src={testimonial.image}
                     alt={`Foto ilustrativa de ${testimonial.name}`}
                     loading="lazy"
@@ -69,7 +69,7 @@ export function TestimonialsCarousel({
                   />
                   <h3 className="mb-3 text-base font-bold text-[var(--tx)]">{testimonial.name}</h3>
                   <Quote
-                    className="mb-3 size-5 text-[var(--gd)]"
+                    className="mb-3 size-5 text-[var(--am)]"
                     strokeWidth={1.8}
                     aria-hidden="true"
                   />
@@ -84,7 +84,7 @@ export function TestimonialsCarousel({
               <button
                 type="button"
                 onClick={() => move(-1)}
-                className="grid size-11 place-items-center rounded-full border border-[var(--gd)] bg-transparent text-[var(--gd)] transition hover:bg-[var(--gd)] hover:text-[var(--bg)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gd)]"
+                className="grid size-11 place-items-center rounded-full border border-[var(--gd)] bg-transparent text-[var(--am)] transition hover:bg-[var(--gd)] hover:text-[var(--bg)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gd)]"
                 aria-label="Ver depoimento anterior"
               >
                 <ChevronLeft className="size-5" aria-hidden="true" />
@@ -92,7 +92,7 @@ export function TestimonialsCarousel({
               <button
                 type="button"
                 onClick={() => move(1)}
-                className="grid size-11 place-items-center rounded-full border border-[var(--gd)] bg-transparent text-[var(--gd)] transition hover:bg-[var(--gd)] hover:text-[var(--bg)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gd)]"
+                className="grid size-11 place-items-center rounded-full border border-[var(--gd)] bg-transparent text-[var(--am)] transition hover:bg-[var(--gd)] hover:text-[var(--bg)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gd)]"
                 aria-label="Ver próximo depoimento"
               >
                 <ChevronRight className="size-5" aria-hidden="true" />

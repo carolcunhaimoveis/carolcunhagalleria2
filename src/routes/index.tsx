@@ -63,7 +63,7 @@ function icon(Icon: LucideIcon): string {
   return renderToStaticMarkup(
     createElement(Icon, {
       "aria-hidden": true,
-      className: "lp-icon size-[1em] shrink-0 text-[var(--gd)]",
+      className: "lp-icon size-[1em] shrink-0 text-[var(--am)]",
       strokeWidth: 1.8,
     }),
   );
@@ -206,27 +206,28 @@ function Landing() {
     updateToken: string;
   } | null>(null);
   const [fieldErrors, setFieldErrors] = useState<{
-    nome?: string;
-    telefone?: string;
-    consentimento?: string;
+    nome?: string | undefined;
+    telefone?: string | undefined;
+    consentimento?: string | undefined;
   }>({});
 
   // flag para disparar form_start apenas uma vez por sessão de formulário
   const formStartedRef = useRef(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const target = e.target;
     // form_start — dispara apenas na primeira interação
     if (!formStartedRef.current) {
       formStartedRef.current = true;
-      trackEvent("form_start", { section: "contato", label: e.target.name });
+      trackEvent("form_start", { section: "contato", label: target.name });
     }
-    const { name, value } = e.target;
+    const { name, value } = target;
 
-    if (name === "consentimento" && e.target instanceof HTMLInputElement) {
-      setForm((p) => ({ ...p, consentimento: e.target.checked }));
+    if (name === "consentimento" && target instanceof HTMLInputElement) {
+      setForm((p) => ({ ...p, consentimento: target.checked }));
       setFieldErrors((p) => ({
         ...p,
-        consentimento: e.target.checked ? undefined : p.consentimento,
+        consentimento: target.checked ? undefined : p.consentimento,
       }));
     } else if (name === "telefone") {
       const masked = maskPhone(value);
@@ -288,8 +289,8 @@ function Landing() {
       // 1. Evento interno de funil
       trackEvent("form_submit_success", {
         section: "contato",
-        utm_source: readUtmParams().utm_source,
-        utm_campaign: readUtmParams().utm_campaign,
+        utm_source: readUtmParams()["utm_source"],
+        utm_campaign: readUtmParams()["utm_campaign"],
       });
       // 2. Meta Pixel Lead — SOMENTE aqui, após resposta positiva do servidor
       fireLeadEvent();
@@ -483,7 +484,7 @@ function Landing() {
     if (formEl) {
       formViewOb = new IntersectionObserver(
         ([entry]) => {
-          if (entry.isIntersecting && !formViewed) {
+          if (entry?.isIntersecting && !formViewed) {
             formViewed = true;
             trackEvent("form_view", { section: "contato", funnel_position: "bottom" });
             formViewOb?.disconnect();
@@ -752,7 +753,7 @@ function Landing() {
                 <div className="lead-form" aria-live="polite">
                   <div className="lf-step-head">
                     <span className="lf-step-check" aria-hidden="true">
-                      <CircleCheck className="size-5 text-[var(--gd)]" strokeWidth={2} />
+                      <CircleCheck className="size-5 text-[var(--am)]" strokeWidth={2} />
                     </span>
                     <div>
                       <h3>Perfeito! Seu contato já foi enviado.</h3>
@@ -854,7 +855,7 @@ function Landing() {
               rel="noopener noreferrer"
               className="ig-link"
             >
-              <Instagram className="size-[1em] shrink-0 text-[var(--gd)]" aria-hidden="true" />
+              <Instagram className="size-[1em] shrink-0 text-[var(--am)]" aria-hidden="true" />
               @carolcunha.imoveis
             </a>
           </div>
@@ -903,7 +904,7 @@ function FlarePicker() {
 
   useEffect(() => {
     if (active === "custom") return;
-    document.body.dataset.flare = active === "gold" ? "" : active;
+    document.body.dataset["flare"] = active === "gold" ? "" : active;
     localStorage.setItem("flare", active);
     ["--flare-1-core", "--flare-1-mid", "--flare-2-core", "--flare-2-mid"].forEach((v) =>
       document.body.style.removeProperty(v),
@@ -912,7 +913,7 @@ function FlarePicker() {
 
   const applyCustom = (hex: string) => {
     const rgb = hexToRgb(hex);
-    delete document.body.dataset.flare;
+    delete document.body.dataset["flare"];
     document.body.style.setProperty("--flare-1-core", rgb);
     document.body.style.setProperty("--flare-1-mid", rgb);
     document.body.style.setProperty("--flare-2-core", rgb);
@@ -937,8 +938,8 @@ function FlarePicker() {
           type="color"
           defaultValue={
             typeof window !== "undefined"
-              ? localStorage.getItem("flare-custom") || "#ffcd78"
-              : "#ffcd78"
+              ? localStorage.getItem("flare-custom") || "#BF70FF"
+              : "#BF70FF"
           }
           onChange={(e) => applyCustom(e.target.value)}
         />
