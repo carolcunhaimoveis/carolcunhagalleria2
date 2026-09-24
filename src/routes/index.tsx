@@ -17,6 +17,7 @@ import {
   Handshake,
   House,
   Instagram,
+  KeyRound,
   MapPin,
   Ruler,
   ShieldCheck,
@@ -138,11 +139,7 @@ const BODY_HTML = `<div class="flare-bg" aria-hidden="true"></div><div class="fw
 <section class="sec" id="local"><div class="c"><div class="loc-layout"><div class="loc-text"><span class="slb">Localização</span><h2 class="st">Perto do que importa em <span class="nt">Campinas</span></h2><p class="loc-desc">No Jardim Conceição, próximo ao Galleria Shopping, à Lagoa do Taquaral e à Rodovia Dom Pedro I.</p><div class="loc-addr rv2"><span class="loc-pin">${icon(MapPin)}</span><div><strong>Jardim Conceição — Campinas/SP</strong><span>Rua Antônio Pavin, 227</span></div></div><div class="loc-cards"><div class="loc-card rv2"><span class="loc-time">1,8 km</span><span class="loc-name">Galleria Shopping</span><span class="loc-via">Compras e gastronomia</span></div><div class="loc-card rv2"><span class="loc-time">2 km</span><span class="loc-name">Lagoa do Taquaral</span><span class="loc-via">Lazer ao ar livre</span></div><div class="loc-card rv2"><span class="loc-time">1,2 km</span><span class="loc-name">Dalben</span><span class="loc-via">Supermercado</span></div><div class="loc-card rv2"><span class="loc-time">50 m</span><span class="loc-name">Posto de saúde</span><span class="loc-via">Serviços próximos</span></div></div><div class="loc-cta"><a href="#contato" class="btn bg">QUERO RECEBER VALORES E CONDIÇÕES</a></div></div><div class="loc-map"><iframe title="Localização Alto do Galleria II" src="https://www.google.com/maps?q=Rua%20Ant%C3%B4nio%20Pavin%2C%20227%2C%20Jardim%20Concei%C3%A7%C3%A3o%2C%20Campinas%2C%20SP&output=embed" style="border:0;width:100%;height:100%;display:block" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div></div></section>
 
 <!-- 6. CONDIÇÕES COMERCIAIS -->
-<section class="sec" id="condicoes"><div class="c"><div class="sh"><span class="slb">Formas de Aquisição</span><h2 class="st">Planeje a <span class="nt">sua compra</span></h2><p class="sd">Receba informações atualizadas e uma análise personalizada.</p></div><div class="text-accordion">
-<details class="text-item rv2" name="condicoes"><summary><span>${icon(House)} Minha Casa Minha Vida</span>${icon(ChevronDown)}</summary><p>Consulte os benefícios aplicáveis ao seu perfil.</p></details>
-<details class="text-item rv2" name="condicoes"><summary><span>${icon(CreditCard)} Simulação personalizada</span>${icon(ChevronDown)}</summary><p>Simule a entrada e as parcelas do financiamento.</p></details>
-<details class="text-item rv2" name="condicoes"><summary><span>${icon(Handshake)} Assessoria completa</span>${icon(ChevronDown)}</summary><p>Acompanhamento desde a organização dos documentos até a assinatura.</p></details>
-</div><p class="cond-nota rv2">Confirme no atendimento valores, disponibilidade, financiamento e condições comerciais vigentes.</p></div></section>
+<section class="sec" id="condicoes"><div class="c"><div class="sh"><span class="slb">Formas de Aquisição</span><h2 class="st">Planeje a <span class="nt">sua compra</span></h2><p class="sd">Receba informações atualizadas e uma análise personalizada.</p></div><div class="cond-grid"><div class="cond-item rv2"><div class="cond-icon">${icon(House)}</div><h3>Minha Casa Minha Vida</h3><p>Consulte os benefícios aplicáveis ao seu perfil.</p></div><div class="cond-item rv2"><div class="cond-icon">${icon(CreditCard)}</div><h3>Simulação personalizada</h3><p>Simule a entrada e as parcelas do financiamento.</p></div><div class="cond-item rv2"><div class="cond-icon">${icon(KeyRound)}</div><h3>Primeiro imóvel</h3><p>Acompanhamento pessoal na organização da documentação.</p></div><div class="cond-item rv2"><div class="cond-icon">${icon(Handshake)}</div><h3>Assessoria completa</h3><p>Assessoria total, desde a simulação até a assinatura.</p></div></div><p class="cond-nota rv2">Confirme no atendimento valores, disponibilidade, financiamento e condições comerciais vigentes.</p></div></section>
 </div>`;
 
 export const Route = createFileRoute("/")({
