@@ -578,7 +578,7 @@ function Landing() {
                 decoding="async"
                 width={400}
                 height={480}
-                src="/images/Carol (9).png"
+                src="/images/carol-corretora.png"
                 alt="Carol Cunha — Corretora de Imóveis"
                 className="carol-photo"
                 sizes="(max-width:900px) 60vw, 380px"
