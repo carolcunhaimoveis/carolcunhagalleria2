@@ -920,7 +920,7 @@ h1.h2h1 {
   height: 100%;
   object-fit: cover;
   display: block;
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/4;
 }
 .hero-conversion-layout {
   display: grid;

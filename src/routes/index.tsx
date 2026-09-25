@@ -654,16 +654,19 @@ function Landing() {
               </p>
             </div>
             <div className="h2img">
-              <img
-                loading="eager"
-                fetchPriority="high"
-                decoding="sync"
-                width={720}
-                height={540}
-                src="/images/galleria-10.webp"
-                alt="Fachada e entrada do Alto do Galleria II"
-                sizes="(max-width:900px) 100vw, 42vw"
-              />
+              <picture>
+                <source media="(max-width: 900px)" srcSet="/images/Galleria-16x9.png" />
+                <img
+                  loading="eager"
+                  fetchPriority="high"
+                  decoding="sync"
+                  width={720}
+                  height={540}
+                  src="/images/Galleria-3x4.png"
+                  alt="Fachada e entrada do Alto do Galleria II"
+                  sizes="(max-width:900px) 100vw, 42vw"
+                />
+              </picture>
             </div>
           </div>
           <aside className="hero-lead-card" id="hero-form" aria-label="Solicitar valores e plantas">
