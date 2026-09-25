@@ -14,6 +14,8 @@ interface LeadInput {
   utms?: string;
   /** Pathname ou URL completa da landing page, enviado pelo cliente */
   landingPage?: string;
+  /** Posição do formulário na mesma landing page; não altera a origem comercial */
+  formOrigin?: "hero" | "footer";
 }
 
 interface EnrichmentInput {
@@ -73,6 +75,7 @@ export const submitLead = createServerFn({ method: "POST" })
     // Dados de atribuição seguem somente nos campos estruturados abaixo para
     // evitar duplicação e divergência entre as duas representações.
     const noteLines: string[] = ["Lead captado pelo site Alto do Galleria II"];
+    if (data.formOrigin) noteLines.push(`Formulário: ${data.formOrigin}`);
     if (data.parcela) noteLines.push(`Parcela desejada: ${data.parcela}`);
     if (data.objetivo) noteLines.push(`Objetivo: ${data.objetivo}`);
 

@@ -76,8 +76,8 @@ export function initPixel(): void {
   window.fbq("init", PIXEL_ID.trim());
   window.fbq("track", "PageView");
   window.fbq("track", "ViewContent", {
-    content_name: "Terras de Nova Odessa",
-    content_category: "Loteamento Residencial",
+    content_name: "Alto do Galleria II",
+    content_category: "Apartamento Residencial",
     // Sem PII — apenas metadados do produto
   });
 }
@@ -100,8 +100,8 @@ export function fireLeadEvent(params?: {
   if (!isEnabled() || !window.fbq) return;
 
   window.fbq("track", "Lead", {
-    content_name: "Terras de Nova Odessa",
-    content_category: "Loteamento Residencial",
+    content_name: "Alto do Galleria II",
+    content_category: "Apartamento Residencial",
     ...(params?.parcela ? { parcela: params.parcela } : {}),
     ...(params?.objetivo ? { objetivo: params.objetivo } : {}),
   });

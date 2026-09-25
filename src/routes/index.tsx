@@ -4,7 +4,6 @@ import {
   Accessibility,
   ArrowUpDown,
   Baby,
-  BedDouble,
   Building2,
   Car,
   ChevronDown,
@@ -54,7 +53,7 @@ function isValidName(name: string): boolean {
 }
 
 const WA =
-  "https://wa.me/5519986107562?text=Ol%C3%A1%2C%20vi%20o%20site%20do%20Alto do Galleria II%20de%20Nova%20Odessa%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es";
+  "https://wa.me/5519986107562?text=Ol%C3%A1%2C%20Carol%21%20Vim%20pelo%20site%20do%20Alto%20do%20Galleria%20II%20e%20gostaria%20de%20receber%20informa%C3%A7%C3%B5es%20sobre%20os%20apartamentos.";
 
 function icon(Icon: LucideIcon): string {
   return renderToStaticMarkup(
@@ -66,41 +65,12 @@ function icon(Icon: LucideIcon): string {
   );
 }
 // ─── HTML estático completo ────────────────────────────────────────────────────
-const BODY_HTML = `<div class="flare-bg" aria-hidden="true"></div><div class="fw" aria-hidden="true"><div class="fl f1"></div><div class="fl f2"></div><div class="fl f3"></div><div class="fl f4"></div></div>
+const NAV_HTML = `<div class="flare-bg" aria-hidden="true"></div><div class="fw" aria-hidden="true"><div class="fl f1"></div><div class="fl f2"></div><div class="fl f3"></div><div class="fl f4"></div></div>
 <div class="w">
 <nav><div class="c ni"><a href="#" class="lo">Carol <span>Cunha</span></a><ul class="nl"><li><a href="#sobre">Diferenciais</a></li><li><a href="#galeria">Galeria</a></li><li><a href="#experiencia">Tour 360°</a></li><li><a href="#lazer">Lazer</a></li><li><a href="#local">Localização</a></li><li><a href="https://www.instagram.com/carolcunha.imoveis/" target="_blank" rel="noopener" class="ig-link">${icon(Instagram)}@carolcunha.imoveis</a></li>
-<li><a href="#contato" class="nc">Fale comigo</a></li></ul></div></nav>
+<li><a href="#hero-form" class="nc">Fale comigo</a></li></ul></div></nav></div>`;
 
-<!-- 1. HERO -->
-<section class="hero2">
-  <div class="c h2c">
-    <div class="h2t">
-      <div class="h2ey">ALTO DO GALLERIA II</div>
-      <h1 class="h2h1">Apartamentos de <span class="nt">41,39 a 42,66 m²</span> perto do Galleria Shopping</h1>
-      <p class="h2sub">2 dormitórios, varanda integrada e lazer completo no Jardim Conceição, em Campinas.</p>
-      <ul class="h2pills">
-        <li><span class="h2pill">${icon(BedDouble)} 2 dormitórios</span></li>
-        <li><span class="h2pill">${icon(MapPin)} Campinas/SP</span></li>
-        <li><span class="h2pill">${icon(Car)} Opções com vaga coberta</span></li>
-      </ul>
-      <a href="#contato" class="btn bg h2cta">QUERO RECEBER VALORES E CONDIÇÕES</a>
-      <p class="h2micro">Atendimento direto com Carol Cunha • Corretora de Imóveis</p>
-    </div>
-    <div class="h2img">
-      <img
-        loading="eager"
-        fetchpriority="high"
-        decoding="sync"
-        width="720"
-        height="540"
-        src="/images/galleria-10.webp"
-        alt="Fachada e entrada do Alto do Galleria II"
-        sizes="(max-width:900px) 100vw, 50vw"
-      />
-    </div>
-  </div>
-</section>
-
+const BODY_HTML = `<div class="w">
 <!-- 2. PRINCIPAIS DIFERENCIAIS -->
 <section class="sec" id="sobre"><div class="c"><div class="sh"><span class="slb">O Empreendimento</span><h2 class="st">Seu apartamento perto de <span class="nt">tudo</span></h2><p class="sd">Um lançamento da Zuma Engenharia com espaços funcionais, lazer equipado e localização estratégica em Campinas.</p></div><div class="cards">
 <details class="card rv2" name="empreendimento"><summary><span class="card-head"><span class="ci ci-g">${icon(Ruler)}</span><span>Plantas inteligentes</span></span><span class="card-chevron">${icon(ChevronDown)}</span></summary><div class="card-details"><p>Apartamentos de 41,39 a 42,66 m², com dois dormitórios e varanda integrada.</p><span class="ct">Ponta e meio</span></div></details>
@@ -124,7 +94,7 @@ const BODY_HTML = `<div class="flare-bg" aria-hidden="true"></div><div class="fw
 <figure class="vd-thumb"><img loading="lazy" decoding="async" width="1283" height="1600" src="/images/galleria-09.webp" alt="Perspectiva da torre única"><figcaption class="vd-label">Torre única</figcaption></figure>
 <figure class="vd-thumb vd-plan"><img loading="lazy" decoding="async" width="708" height="465" src="/images/galleria-11.webp" alt="Planta do apartamento de centro"><figcaption class="vd-label">Planta de meio</figcaption></figure>
 <figure class="vd-thumb vd-plan"><img loading="lazy" decoding="async" width="528" height="521" src="/images/galleria-12.webp" alt="Planta do apartamento de ponta"><figcaption class="vd-label">Planta de ponta</figcaption></figure>
-</div><button class="vd-btn vd-nx" id="vd-next" aria-label="Próxima foto">${icon(ChevronRight)}</button></div><p class="vd-disclaimer">Imagens e perspectivas artísticas meramente ilustrativas, sujeitas a alterações.</p></div></section>
+</div><button class="vd-btn vd-nx" id="vd-next" aria-label="Próxima foto">${icon(ChevronRight)}</button></div><p class="vd-disclaimer">Imagens e perspectivas artísticas meramente ilustrativas, sujeitas a alterações.</p><div class="gallery-conversion rv2"><h3>Gostou do que viu?</h3><p>Conheça as plantas disponíveis e descubra as condições para adquirir seu apartamento no Alto do Galleria II.</p><a href="#hero-form" class="btn bg">QUERO CONHECER AS CONDIÇÕES</a></div></div></section>
 
 <!-- 3.5. EXPERIÊNCIA IMERSIVA -->
 <section class="sec exp-sec" id="experiencia"><div class="c"><div class="sh"><span class="slb">Visite sem sair de casa</span><h2 class="st">Explore o decorado em <span class="nt">vídeo e 360°</span></h2><p class="sd">Conheça os ambientes com mais detalhes antes de agendar sua visita.</p></div><div class="exp-grid">
@@ -133,13 +103,13 @@ const BODY_HTML = `<div class="flare-bg" aria-hidden="true"></div><div class="fw
 </div></div></section>
 
 <!-- 4. LAZER E INFRAESTRUTURA -->
-<section class="sec" id="lazer"><div class="c"><div class="sh"><span class="slb">Lazer &amp; Infraestrutura</span><h2 class="st">Conforto para <span class="nt">todos os dias</span></h2><p class="sd">Espaços planejados para convivência, bem-estar e qualidade de vida.</p></div><div class="lz-grid"><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="480" height="300" src="/images/galleria-08.webp" alt="Piscina adulto e deck"></div><div class="lz-info"><span class="lz-icon">${icon(Waves)}</span><h3>Piscinas</h3><p>Piscinas adulto e infantil integradas ao deck.</p></div></div><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="480" height="300" src="/images/galleria-06.webp" alt="Salão Gourmet"></div><div class="lz-info"><span class="lz-icon">${icon(Utensils)}</span><h3>Salão Gourmet</h3><p>Espaço com churrasqueira para receber bem.</p></div></div><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="480" height="300" src="/images/galleria-07.webp" alt="Academia"></div><div class="lz-info"><span class="lz-icon">${icon(Dumbbell)}</span><h3>Academia</h3><p>Ambiente planejado para uma rotina mais ativa.</p></div></div><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="480" height="300" src="/images/galleria-05.webp" alt="Playground"></div><div class="lz-info"><span class="lz-icon">${icon(Baby)}</span><h3>Playground</h3><p>Diversão e convivência para as crianças.</p></div></div></div><div class="lz-infra rv2"><div class="lz-infra-head"><span class="slb">Diferenciais</span><h3 class="lz-infra-title">Detalhes pensados para o dia a dia</h3></div><div class="lz-infra-grid"><div class="lz-inf-item"><span>${icon(ShieldCheck)}</span><span>Guarita e acesso controlado</span></div><div class="lz-inf-item"><span>${icon(Accessibility)}</span><span>Acessos separados para pedestres e veículos</span></div><div class="lz-inf-item"><span>${icon(ArrowUpDown)}</span><span>Dois elevadores</span></div><div class="lz-inf-item"><span>${icon(Snowflake)}</span><span>Previsão para ar-condicionado no quarto do casal</span></div></div></div><div class="lz-cta"><a href="#contato" class="btn bg">QUERO RECEBER VALORES E CONDIÇÕES</a></div></div></section>
+<section class="sec" id="lazer"><div class="c"><div class="sh"><span class="slb">Lazer &amp; Infraestrutura</span><h2 class="st">Conforto para <span class="nt">todos os dias</span></h2><p class="sd">Espaços planejados para convivência, bem-estar e qualidade de vida.</p></div><div class="lz-grid"><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="480" height="300" src="/images/galleria-08.webp" alt="Piscina adulto e deck"></div><div class="lz-info"><span class="lz-icon">${icon(Waves)}</span><h3>Piscinas</h3><p>Piscinas adulto e infantil integradas ao deck.</p></div></div><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="480" height="300" src="/images/galleria-06.webp" alt="Salão Gourmet"></div><div class="lz-info"><span class="lz-icon">${icon(Utensils)}</span><h3>Salão Gourmet</h3><p>Espaço com churrasqueira para receber bem.</p></div></div><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="480" height="300" src="/images/galleria-07.webp" alt="Academia"></div><div class="lz-info"><span class="lz-icon">${icon(Dumbbell)}</span><h3>Academia</h3><p>Ambiente planejado para uma rotina mais ativa.</p></div></div><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="480" height="300" src="/images/galleria-05.webp" alt="Playground"></div><div class="lz-info"><span class="lz-icon">${icon(Baby)}</span><h3>Playground</h3><p>Diversão e convivência para as crianças.</p></div></div></div><div class="lz-infra rv2"><div class="lz-infra-head"><span class="slb">Diferenciais</span><h3 class="lz-infra-title">Detalhes pensados para o dia a dia</h3></div><div class="lz-infra-grid"><div class="lz-inf-item"><span>${icon(ShieldCheck)}</span><span>Guarita e acesso controlado</span></div><div class="lz-inf-item"><span>${icon(Accessibility)}</span><span>Acessos separados para pedestres e veículos</span></div><div class="lz-inf-item"><span>${icon(ArrowUpDown)}</span><span>Dois elevadores</span></div><div class="lz-inf-item"><span>${icon(Snowflake)}</span><span>Previsão para ar-condicionado no quarto do casal</span></div></div></div><div class="lz-cta"><a href="#hero-form" class="btn bg">QUERO CONHECER AS CONDIÇÕES</a></div></div></section>
 
 <!-- 5. LOCALIZAÇÃO -->
 <section class="sec" id="local"><div class="c"><div class="loc-layout"><div class="loc-text"><span class="slb">Localização</span><h2 class="st">Perto do que importa em <span class="nt">Campinas</span></h2><p class="loc-desc">No Jardim Conceição, próximo ao Galleria Shopping, à Lagoa do Taquaral e à Rodovia Dom Pedro I.</p><div class="loc-addr rv2"><span class="loc-pin">${icon(MapPin)}</span><div><strong>Jardim Conceição — Campinas/SP</strong><span>Rua Antônio Pavin, 227</span></div></div><div class="loc-cards"><div class="loc-card rv2"><span class="loc-time">1,8 km</span><span class="loc-name">Galleria Shopping</span><span class="loc-via">Compras e gastronomia</span></div><div class="loc-card rv2"><span class="loc-time">2 km</span><span class="loc-name">Lagoa do Taquaral</span><span class="loc-via">Lazer ao ar livre</span></div><div class="loc-card rv2"><span class="loc-time">1,2 km</span><span class="loc-name">Dalben</span><span class="loc-via">Supermercado</span></div><div class="loc-card rv2"><span class="loc-time">50 m</span><span class="loc-name">Posto de saúde</span><span class="loc-via">Serviços próximos</span></div></div><div class="loc-cta"><a href="#contato" class="btn bg">QUERO RECEBER VALORES E CONDIÇÕES</a></div></div><div class="loc-map"><iframe title="Localização Alto do Galleria II" src="https://www.google.com/maps?q=Rua%20Ant%C3%B4nio%20Pavin%2C%20227%2C%20Jardim%20Concei%C3%A7%C3%A3o%2C%20Campinas%2C%20SP&output=embed" style="border:0;width:100%;height:100%;display:block" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div></div></section>
 
 <!-- 6. CONDIÇÕES COMERCIAIS -->
-<section class="sec" id="condicoes"><div class="c"><div class="sh"><span class="slb">Formas de Aquisição</span><h2 class="st">Planeje a <span class="nt">sua compra</span></h2><p class="sd">Receba informações atualizadas e uma análise personalizada.</p></div><div class="cond-grid"><div class="cond-item rv2"><div class="cond-icon">${icon(House)}</div><h3>Minha Casa Minha Vida</h3><p>Consulte os benefícios aplicáveis ao seu perfil.</p></div><div class="cond-item rv2"><div class="cond-icon">${icon(CreditCard)}</div><h3>Simulação personalizada</h3><p>Simule a entrada e as parcelas do financiamento.</p></div><div class="cond-item rv2"><div class="cond-icon">${icon(KeyRound)}</div><h3>Primeiro imóvel</h3><p>Acompanhamento pessoal na organização da documentação.</p></div><div class="cond-item rv2"><div class="cond-icon">${icon(Handshake)}</div><h3>Assessoria completa</h3><p>Assessoria total, desde a simulação até a assinatura.</p></div></div><p class="cond-nota rv2">Confirme no atendimento valores, disponibilidade, financiamento e condições comerciais vigentes.</p></div></section>
+<section class="sec" id="condicoes"><div class="c"><div class="sh"><span class="slb">Formas de Aquisição</span><h2 class="st">Seu apartamento pode estar mais perto do que você <span class="nt">imagina!</span></h2><p class="sd">Conheça as possibilidades de financiamento do Alto do Galleria II e receba orientação personalizada para planejar sua compra.</p></div><div class="cond-grid"><div class="cond-item rv2"><div class="cond-icon">${icon(CreditCard)}</div><h3>Entrada e parcelas</h3><p>Simulação de entrada e parcelas do financiamento.</p></div><div class="cond-item rv2"><div class="cond-icon">${icon(House)}</div><h3>Uso do FGTS</h3><p>Orientação sobre as possibilidades de uso do FGTS.</p></div><div class="cond-item rv2"><div class="cond-icon">${icon(KeyRound)}</div><h3>Benefícios habitacionais</h3><p>Verificação dos benefícios aplicáveis ao seu perfil.</p></div><div class="cond-item rv2"><div class="cond-icon">${icon(Handshake)}</div><h3>Atendimento direto</h3><p>Orientação personalizada com a corretora durante sua jornada.</p></div></div><div class="cond-cta"><a href="#hero-form" class="btn bg">QUERO SIMULAR MINHA COMPRA</a></div><p class="cond-nota rv2">A simulação não representa aprovação de crédito. Confirme no atendimento valores, disponibilidade, financiamento e condições comerciais vigentes.</p></div></section>
 </div>`;
 
 export const Route = createFileRoute("/")({
@@ -216,7 +186,8 @@ function Landing() {
     // form_start — dispara apenas na primeira interação
     if (!formStartedRef.current) {
       formStartedRef.current = true;
-      trackEvent("form_start", { section: "contato", label: target.name });
+      const origin = target.closest("form")?.dataset.formOrigin ?? "contato";
+      trackEvent("form_start", { section: origin, label: target.name });
     }
     const { name, value } = target;
 
@@ -249,7 +220,7 @@ function Landing() {
     }
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent, formOrigin: "hero" | "footer") => {
     e.preventDefault();
 
     // Valida todos os campos de uma vez, sem sair ao primeiro erro
@@ -265,7 +236,7 @@ function Landing() {
         (f) => errs[f as keyof typeof errs],
       );
       if (firstErrField) {
-        const el = document.getElementById(`lead-${firstErrField}`);
+        const el = document.getElementById(`lead-${formOrigin}-${firstErrField}`);
         el?.focus();
       }
       return;
@@ -280,12 +251,14 @@ function Landing() {
           utms: JSON.stringify(readUtmParams()),
           landingPage:
             typeof window !== "undefined" ? window.location.href.split("?")[0] : undefined,
+          formOrigin,
         },
       });
       // ── sucesso confirmado pelo SmartLeads ─────────────────────────────
       // 1. Evento interno de funil
       trackEvent("form_submit_success", {
-        section: "contato",
+        section: formOrigin,
+        label: formOrigin,
         utm_source: readUtmParams()["utm_source"],
         utm_campaign: readUtmParams()["utm_campaign"],
       });
@@ -295,9 +268,15 @@ function Landing() {
       setCaptureCredentials({ leadId: result.leadId, updateToken: result.updateToken });
       setFormStatus("idle");
       setStep(2);
+      if (formOrigin === "hero") {
+        window.setTimeout(
+          () => document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" }),
+          80,
+        );
+      }
     } catch (err) {
       console.error("[form] submitLead error:", err);
-      trackEvent("form_submit_error", { section: "contato", error_type: "server_error" });
+      trackEvent("form_submit_error", { section: formOrigin, error_type: "server_error" });
       setFormStatus("error");
       // Não limpa o formulário em caso de erro
     }
@@ -446,7 +425,9 @@ function Landing() {
 
     // ── eventos de funil (CTAs do BODY_HTML via delegação) ────────────────
     const heroCta = document.querySelector<HTMLElement>(".h2cta");
-    const midCtaEls = document.querySelectorAll<HTMLElement>(".pq-cta a, .lz-cta a, .loc-cta a");
+    const midCtaEls = document.querySelectorAll<HTMLElement>(
+      ".pq-cta a, .lz-cta a, .loc-cta a, .gallery-conversion a, .cond-cta a",
+    );
     const waEls = document.querySelectorAll<HTMLElement>(`a[href*="wa.me"]`);
 
     const onHeroCta = () =>
@@ -536,9 +517,193 @@ function Landing() {
     };
   }, []);
 
+  const renderCaptureForm = (formOrigin: "hero" | "footer") => {
+    const prefix = `lead-${formOrigin}`;
+    return (
+      <form
+        onSubmit={(event) => handleSubmit(event, formOrigin)}
+        className="lead-form"
+        data-form-origin={formOrigin}
+        noValidate
+      >
+        <div className="lead-form-fields">
+          <div className="lead-field">
+            <label htmlFor={`${prefix}-nome`}>Seu nome</label>
+            <input
+              id={`${prefix}-nome`}
+              type="text"
+              name="nome"
+              placeholder="Como podemos te chamar?"
+              value={form.nome}
+              onChange={handleChange}
+              required
+              autoComplete="name"
+              aria-required="true"
+              aria-describedby={fieldErrors.nome ? `${prefix}-err-nome` : undefined}
+              className={fieldErrors.nome ? "input-error" : ""}
+            />
+            {fieldErrors.nome && (
+              <span id={`${prefix}-err-nome`} className="lead-field-err" role="alert">
+                {fieldErrors.nome}
+              </span>
+            )}
+          </div>
+          <div className="lead-field">
+            <label htmlFor={`${prefix}-telefone`}>Seu WhatsApp</label>
+            <input
+              id={`${prefix}-telefone`}
+              type="tel"
+              name="telefone"
+              placeholder="(19) 9 9999-9999"
+              value={form.telefone}
+              onChange={handleChange}
+              required
+              autoComplete="tel"
+              inputMode="numeric"
+              aria-required="true"
+              aria-describedby={fieldErrors.telefone ? `${prefix}-err-telefone` : undefined}
+              className={fieldErrors.telefone ? "input-error" : ""}
+            />
+            {fieldErrors.telefone && (
+              <span id={`${prefix}-err-telefone`} className="lead-field-err" role="alert">
+                {fieldErrors.telefone}
+              </span>
+            )}
+          </div>
+          <div className="lead-field lead-field--full">
+            <label className="lf-consent" htmlFor={`${prefix}-consentimento`}>
+              <input
+                id={`${prefix}-consentimento`}
+                type="checkbox"
+                name="consentimento"
+                checked={form.consentimento}
+                onChange={handleChange}
+                required
+              />
+              <span>Concordo em receber informações e atendimento sobre este empreendimento.</span>
+            </label>
+            {fieldErrors.consentimento && (
+              <span id={`${prefix}-err-consentimento`} className="lead-field-err" role="alert">
+                {fieldErrors.consentimento}
+              </span>
+            )}
+          </div>
+        </div>
+        <div className="lf-actions">
+          <button
+            type="submit"
+            className="btn bg lead-submit lf-btn"
+            disabled={formStatus === "sending"}
+          >
+            {formStatus === "sending" ? (
+              <>
+                <span className="lf-spinner" aria-hidden="true" />
+                Enviando…
+              </>
+            ) : (
+              "QUERO RECEBER VALORES E PLANTAS"
+            )}
+          </button>
+          {formStatus === "error" && (
+            <p className="lead-msg lead-err" role="alert">
+              Não foi possível enviar agora. Tente novamente ou fale com a Carol pelo WhatsApp.
+            </p>
+          )}
+          <p className="lf-micro">
+            Seus dados serão usados somente no atendimento sobre o Alto do Galleria II.
+          </p>
+          <p className="lf-privacy">
+            Ao continuar, você concorda com nossa{" "}
+            <a
+              href="/politica-de-privacidade"
+              className="lf-privacy-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Política de Privacidade
+            </a>
+            .
+          </p>
+        </div>
+      </form>
+    );
+  };
+
   return (
     <>
       <FlarePicker />
+      <div dangerouslySetInnerHTML={{ __html: NAV_HTML }} />
+      <section className="hero2" aria-labelledby="hero-title">
+        <div className="c hero-conversion-layout">
+          <div className="hero-presentation">
+            <div className="h2t">
+              <div className="h2ey">ALTO DO GALLERIA II | CAMPINAS/SP</div>
+              <h1 className="h2h1" id="hero-title">
+                Seu novo apartamento pertinho do <span className="nt">Galleria Shopping!</span>
+              </h1>
+              <p className="h2sub">
+                Apartamentos de 2 dormitórios, varanda integrada e lazer completo, em uma
+                localização estratégica de Campinas.
+              </p>
+              <p className="hero-area">Apartamentos de 41,39 a 42,66 m².</p>
+              <a href="#hero-form" className="btn bg h2cta">
+                QUERO RECEBER VALORES E PLANTAS
+              </a>
+              <p className="h2micro">
+                Receba informações atualizadas e atendimento direto com Carol Cunha.
+              </p>
+            </div>
+            <div className="h2img">
+              <img
+                loading="eager"
+                fetchPriority="high"
+                decoding="sync"
+                width={720}
+                height={540}
+                src="/images/galleria-10.webp"
+                alt="Fachada e entrada do Alto do Galleria II"
+                sizes="(max-width:900px) 100vw, 42vw"
+              />
+            </div>
+          </div>
+          <aside className="hero-lead-card" id="hero-form" aria-label="Solicitar valores e plantas">
+            <div className="hero-form-head">
+              <span className="slb">Atendimento direto</span>
+              <h2>Quer saber quanto custa seu novo apê?</h2>
+              <p>
+                Receba as plantas, os valores disponíveis e as condições para conhecer as
+                possibilidades de compra do Alto do Galleria II.
+              </p>
+            </div>
+            {step === 1 ? (
+              renderCaptureForm("hero")
+            ) : (
+              <div className="lf-success" role="status">
+                <CircleCheck className="size-6 text-[var(--am)]" />
+                <div>
+                  <p className="lf-success-title">Seu contato já foi enviado.</p>
+                  <p className="lf-success-text">
+                    Complete, se quiser, as duas perguntas opcionais abaixo.
+                  </p>
+                </div>
+              </div>
+            )}
+            <div className="hero-carol-compact">
+              <img
+                src="/images/carol-cunha.jpg"
+                width={64}
+                height={64}
+                alt="Carol Cunha, corretora de imóveis"
+              />
+              <p>
+                <strong>Seu atendimento será diretamente comigo!</strong>
+                <br />
+                Olá! Sou Carol Cunha. Deixe seu WhatsApp e vamos conversar!
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
       <div dangerouslySetInnerHTML={{ __html: BODY_HTML }} />
 
       <FamilyExperienceSection
@@ -578,7 +743,7 @@ function Landing() {
                 decoding="async"
                 width={400}
                 height={480}
-                src="/images/carol-corretora.png"
+                src="/images/carol-cunha.jpg"
                 alt="Carol Cunha — Corretora de Imóveis"
                 className="carol-photo"
                 sizes="(max-width:900px) 60vw, 380px"
@@ -610,7 +775,18 @@ function Landing() {
                   })
                 }
               >
-                QUERO RECEBER VALORES E CONDIÇÕES
+                QUERO RECEBER VALORES E PLANTAS
+              </a>
+              <a
+                href={WA}
+                className="btn wa-btn carol-whatsapp"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() =>
+                  trackEvent("whatsapp_click", { section: "carol", label: "carol_whatsapp" })
+                }
+              >
+                FALAR PELO WHATSAPP
               </a>
             </div>
           </div>
@@ -625,127 +801,17 @@ function Landing() {
             <div className="lf-head">
               <span className="slb">Fale com a Carol</span>
               <h2 className="lf-title">
-                Receba detalhes do <span className="nt">Alto do Galleria II</span>
+                Quer saber quanto custa seu <span className="nt">novo apê?</span>
               </h2>
-              <p className="lf-sub">Preencha os dados abaixo. É rápido e sem compromisso.</p>
+              <p className="lf-sub">
+                Receba as plantas, os valores disponíveis e as condições para conhecer as
+                possibilidades de compra do Alto do Galleria II.
+              </p>
             </div>
 
             <div className="lf-body">
               {step === 1 ? (
-                <form onSubmit={handleSubmit} className="lead-form" noValidate>
-                  <div className="lead-form-fields">
-                    {/* Nome */}
-                    <div className="lead-field">
-                      <label htmlFor="lead-nome">Seu nome</label>
-                      <input
-                        id="lead-nome"
-                        type="text"
-                        name="nome"
-                        placeholder="Como podemos te chamar?"
-                        value={form.nome}
-                        onChange={handleChange}
-                        required
-                        autoComplete="name"
-                        aria-required="true"
-                        aria-describedby={fieldErrors.nome ? "err-nome" : undefined}
-                        className={fieldErrors.nome ? "input-error" : ""}
-                      />
-                      {fieldErrors.nome && (
-                        <span id="err-nome" className="lead-field-err" role="alert">
-                          {fieldErrors.nome}
-                        </span>
-                      )}
-                    </div>
-
-                    {/* WhatsApp */}
-                    <div className="lead-field">
-                      <label htmlFor="lead-telefone">Seu WhatsApp</label>
-                      <input
-                        id="lead-telefone"
-                        type="tel"
-                        name="telefone"
-                        placeholder="(19) 9 9999-9999"
-                        value={form.telefone}
-                        onChange={handleChange}
-                        required
-                        autoComplete="tel"
-                        inputMode="numeric"
-                        aria-required="true"
-                        aria-describedby={fieldErrors.telefone ? "err-telefone" : undefined}
-                        className={fieldErrors.telefone ? "input-error" : ""}
-                      />
-                      {fieldErrors.telefone && (
-                        <span id="err-telefone" className="lead-field-err" role="alert">
-                          {fieldErrors.telefone}
-                        </span>
-                      )}
-                    </div>
-
-                    <div className="lead-field lead-field--full">
-                      <label className="lf-consent" htmlFor="lead-consentimento">
-                        <input
-                          id="lead-consentimento"
-                          type="checkbox"
-                          name="consentimento"
-                          checked={form.consentimento}
-                          onChange={handleChange}
-                          required
-                        />
-                        <span>
-                          Concordo em receber informações e atendimento sobre este empreendimento.
-                        </span>
-                      </label>
-                      {fieldErrors.consentimento && (
-                        <span id="err-consentimento" className="lead-field-err" role="alert">
-                          {fieldErrors.consentimento}
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                  {/* /lead-form-fields */}
-
-                  {/* Ações */}
-                  <div className="lf-actions">
-                    <button
-                      type="submit"
-                      className="btn bg lead-submit lf-btn"
-                      disabled={formStatus === "sending"}
-                    >
-                      {formStatus === "sending" ? (
-                        <>
-                          <span className="lf-spinner" aria-hidden="true" />
-                          Enviando…
-                        </>
-                      ) : (
-                        "QUERO RECEBER AS CONDIÇÕES"
-                      )}
-                    </button>
-
-                    {formStatus === "error" && (
-                      <p className="lead-msg lead-err" role="alert">
-                        Por favor, verifique os campos e tente novamente. Se preferir, fale direto
-                        pelo WhatsApp.
-                      </p>
-                    )}
-
-                    <p className="lf-micro">
-                      Seus dados serão utilizados somente para entrar em contato sobre o Alto do
-                      Galleria II.
-                    </p>
-                    <p className="lf-privacy">
-                      Ao continuar, você concorda com nossa{" "}
-                      <a
-                        href="/politica-de-privacidade"
-                        className="lf-privacy-link"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Política de Privacidade
-                      </a>
-                      .
-                    </p>
-                  </div>
-                </form>
+                renderCaptureForm("footer")
               ) : (
                 <div className="lead-form" aria-live="polite">
                   <div className="lf-step-head">
@@ -777,6 +843,9 @@ function Landing() {
                           Comprar meu primeiro apartamento
                         </option>
                         <option value="Ainda estou pesquisando">Ainda estou pesquisando</option>
+                        <option value="Ainda não sei, quero uma simulação">
+                          Ainda não sei, quero uma simulação
+                        </option>
                       </select>
                     </div>
                     <div className="lead-field lead-field--full">
@@ -796,6 +865,7 @@ function Landing() {
                         <option value="R$ 1.200 a R$ 1.600">R$ 1.200 a R$ 1.600</option>
                         <option value="R$ 1.600 a R$ 2.000">R$ 1.600 a R$ 2.000</option>
                         <option value="Acima de R$ 2.000">Acima de R$ 2.000</option>
+                        <option value="Pretendo comprar à vista">Pretendo comprar à vista</option>
                         <option value="Quero conhecer as condições primeiro">
                           Quero conhecer as condições primeiro
                         </option>
@@ -868,9 +938,9 @@ function Landing() {
         href="#contato"
         className="cta-sticky-mobile"
         id="cta-sticky"
-        aria-label="Receber valores e condições"
+        aria-label="Receber valores e plantas"
       >
-        RECEBER VALORES E CONDIÇÕES
+        RECEBER VALORES E PLANTAS
       </a>
     </>
   );

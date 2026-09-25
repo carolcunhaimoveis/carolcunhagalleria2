@@ -61,8 +61,8 @@ function PoliticaDePrivacidade() {
                     Esta Política de Privacidade se aplica ao site{" "}
                     <strong>carolcunhagalleria2.lovable.app</strong>, operado por{" "}
                     <strong>Carol Cunha</strong>, corretora de imóveis, responsável exclusivamente
-                    através deste site pelo atendimento comercial relacionado ao loteamento Alto do
-                    Galleria II de Nova Odessa, localizado em Nova Odessa/SP.
+                    através deste site pelo atendimento comercial relacionado ao empreendimento Alto
+                    do Galleria II, localizado em Campinas/SP.
                   </p>
                 </section>
 
@@ -97,9 +97,11 @@ function PoliticaDePrivacidade() {
                   <ul>
                     <li>
                       Entrar em contato com o interessado para fornecer informações sobre o Alto do
-                      Galleria II de Nova Odessa;
+                      Galleria II;
                     </li>
-                    <li>Apresentar valores, condições de pagamento e disponibilidade de lotes;</li>
+                    <li>
+                      Apresentar valores, condições de pagamento e disponibilidade de unidades;
+                    </li>
                     <li>Agendar visitas ou atendimentos personalizados, quando solicitado.</li>
                   </ul>
                   <p>
