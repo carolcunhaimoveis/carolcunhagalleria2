@@ -690,7 +690,7 @@ function Landing() {
             )}
             <div className="hero-carol-compact">
               <img
-                src="/images/carol-cunha.jpg"
+                src="/images/Carol9.png"
                 width={64}
                 height={64}
                 alt="Carol Cunha, corretora de imóveis"
@@ -743,7 +743,7 @@ function Landing() {
                 decoding="async"
                 width={400}
                 height={480}
-                src="/images/carol-cunha.jpg"
+                src="/images/Carol9.png"
                 alt="Carol Cunha — Corretora de Imóveis"
                 className="carol-photo"
                 sizes="(max-width:900px) 60vw, 380px"
