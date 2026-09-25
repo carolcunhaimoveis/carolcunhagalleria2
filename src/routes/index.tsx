@@ -294,11 +294,13 @@ function Landing() {
             objetivo: form.objetivo || undefined,
           },
         });
-        trackEvent("lead_qualification_success", {
-          section: "contato",
-          parcela: form.parcela,
-          objetivo: form.objetivo,
-        });
+        if (form.parcela && form.objetivo) {
+          trackEvent("lead_qualification_success", {
+            section: "contato",
+            parcela: form.parcela,
+            objetivo: form.objetivo,
+          });
+        }
       }
       await router.navigate({ to: "/obrigada" });
     } catch (err) {
@@ -822,16 +824,21 @@ function Landing() {
                       <CircleCheck className="size-5 text-[var(--am)]" strokeWidth={2} />
                     </span>
                     <div>
-                      <h3>Perfeito! Seu contato já foi enviado.</h3>
+                      <h3>Cadastro recebido!</h3>
                       <p>
-                        Só mais 2 perguntas opcionais para encontrarmos as opções mais adequadas
-                        para você.
+                        <strong>
+                          Agora, duas perguntinhas rápidas para personalizar seu atendimento. 😊
+                        </strong>
+                      </p>
+                      <p>
+                        Assim consigo entender melhor o que você procura e te apresentar as
+                        possibilidades do Alto do Galleria II.
                       </p>
                     </div>
                   </div>
                   <div className="lead-form-fields">
                     <div className="lead-field lead-field--full">
-                      <label htmlFor="lead-objetivo">O que você busca hoje?</label>
+                      <label htmlFor="lead-objetivo">1. O que você busca hoje?</label>
                       <select
                         id="lead-objetivo"
                         name="objetivo"
@@ -840,20 +847,16 @@ function Landing() {
                         className="lead-select"
                       >
                         <option value="">Selecione uma opção (opcional)</option>
-                        <option value="Comprar para morar">Comprar para morar</option>
-                        <option value="Comprar para investir">Comprar para investir</option>
-                        <option value="Comprar meu primeiro apartamento">
-                          Comprar meu primeiro apartamento
+                        <option value="Meu apartamento para morar">
+                          Meu apartamento para morar
                         </option>
+                        <option value="Um imóvel para investir">Um imóvel para investir</option>
                         <option value="Ainda estou pesquisando">Ainda estou pesquisando</option>
-                        <option value="Ainda não sei, quero uma simulação">
-                          Ainda não sei, quero uma simulação
-                        </option>
                       </select>
                     </div>
                     <div className="lead-field lead-field--full">
                       <label htmlFor="lead-parcela">
-                        Qual faixa de parcela seria mais confortável para você?
+                        2. Qual parcela você gostaria de avaliar?
                       </label>
                       <select
                         id="lead-parcela"
@@ -863,15 +866,14 @@ function Landing() {
                         className="lead-select"
                       >
                         <option value="">Selecione uma opção (opcional)</option>
-                        <option value="Até R$ 800">Até R$ 800</option>
-                        <option value="R$ 800 a R$ 1.200">R$ 800 a R$ 1.200</option>
-                        <option value="R$ 1.200 a R$ 1.600">R$ 1.200 a R$ 1.600</option>
-                        <option value="R$ 1.600 a R$ 2.000">R$ 1.600 a R$ 2.000</option>
+                        <option value="Até R$ 1.000">Até R$ 1.000</option>
+                        <option value="R$ 1.000 a R$ 1.500">R$ 1.000 a R$ 1.500</option>
+                        <option value="R$ 1.500 a R$ 2.000">R$ 1.500 a R$ 2.000</option>
                         <option value="Acima de R$ 2.000">Acima de R$ 2.000</option>
-                        <option value="Pretendo comprar à vista">Pretendo comprar à vista</option>
-                        <option value="Quero conhecer as condições primeiro">
-                          Quero conhecer as condições primeiro
+                        <option value="Ainda não sei, quero uma simulação">
+                          Ainda não sei, quero uma simulação
                         </option>
+                        <option value="Pretendo comprar à vista">Pretendo comprar à vista</option>
                       </select>
                     </div>
                   </div>
@@ -888,7 +890,7 @@ function Landing() {
                           Salvando…
                         </>
                       ) : (
-                        "VER AS MELHORES OPÇÕES"
+                        "FINALIZAR E PERSONALIZAR MEU ATENDIMENTO"
                       )}
                     </button>
                     <button
@@ -897,7 +899,7 @@ function Landing() {
                       disabled={formStatus === "sending"}
                       onClick={() => finishQualification(true)}
                     >
-                      Prefiro conhecer as condições primeiro
+                      Prefiro responder depois.
                     </button>
                     {formStatus === "error" && (
                       <p className="lead-msg lead-err" role="alert">
