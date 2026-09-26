@@ -186,7 +186,7 @@ function Landing() {
     // form_start — dispara apenas na primeira interação
     if (!formStartedRef.current) {
       formStartedRef.current = true;
-      const origin = target.closest("form")?.dataset.formOrigin ?? "contato";
+      const origin = target.closest("form")?.dataset["formOrigin"] ?? "contato";
       trackEvent("form_start", { section: origin, label: target.name });
     }
     const { name, value } = target;

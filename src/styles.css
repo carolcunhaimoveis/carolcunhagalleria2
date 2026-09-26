@@ -1273,6 +1273,13 @@ footer a:hover {
   }
 }
 @media (max-width: 767px) {
+  .hero-conversion-layout,
+  .hero-presentation,
+  .hero-presentation > *,
+  .hero-lead-card,
+  .h2t {
+    min-width: 0;
+  }
   .hero-presentation {
     grid-template-columns: 1fr;
   }
@@ -1286,8 +1293,23 @@ footer a:hover {
   .hero2 {
     padding-bottom: 2rem;
   }
+  .h2h1,
+  .hero-form-head h2 {
+    overflow-wrap: anywhere;
+  }
+  .h2cta,
+  .hero-lead-card .lf-btn {
+    width: 100%;
+    padding-inline: 16px;
+    white-space: normal;
+  }
   .hero-carol-compact {
     align-items: flex-start;
+  }
+}
+@media (max-width: 360px) {
+  .c {
+    padding-inline: 16px;
   }
 }
 @media (max-width: 768px) {

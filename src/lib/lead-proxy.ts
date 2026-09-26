@@ -89,7 +89,7 @@ export const submitLead = createServerFn({ method: "POST" })
       name: data.name,
       phone: data.phone,
       email: data.email || "",
-      propertyInterest: "Lote Residencial",
+      propertyInterest: "Apartamento 2 Dormitórios",
       familyIncome: 0,
       fgtsValue: 0,
       notes,
