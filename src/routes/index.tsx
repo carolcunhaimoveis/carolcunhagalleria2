@@ -603,7 +603,7 @@ function Landing() {
                 Enviando…
               </>
             ) : (
-              "QUERO RECEBER VALORES E PLANTAS"
+              "QUERO RECEBER VALORES E CONDIÇÕES"
             )}
           </button>
           {formStatus === "error" && (
@@ -649,7 +649,7 @@ function Landing() {
               </p>
               <p className="hero-area">Apartamentos de 41,39 a 42,66 m².</p>
               <a href="#hero-form" className="btn bg h2cta">
-                QUERO RECEBER VALORES E PLANTAS
+                QUERO RECEBER VALORES E CONDIÇÕES
               </a>
               <p className="h2micro">
                 Receba informações atualizadas e atendimento direto com Carol Cunha.
@@ -671,7 +671,7 @@ function Landing() {
               </picture>
             </div>
           </div>
-          <aside className="hero-lead-card" id="hero-form" aria-label="Solicitar valores e plantas">
+          <aside className="hero-lead-card" id="hero-form" aria-label="Solicitar VALORES E CONDIÇÕES">
             <div className="hero-form-head">
               <span className="slb">Atendimento direto</span>
               <h2>Quer saber quanto custa seu novo apê?</h2>
@@ -780,7 +780,7 @@ function Landing() {
                   })
                 }
               >
-                QUERO RECEBER VALORES E PLANTAS
+                QUERO RECEBER VALORES E CONDIÇÕES
               </a>
               <a
                 href={WA}
@@ -943,9 +943,9 @@ function Landing() {
         href="#contato"
         className="cta-sticky-mobile"
         id="cta-sticky"
-        aria-label="Receber valores e plantas"
+        aria-label="Receber VALORES E CONDIÇÕES"
       >
-        RECEBER VALORES E PLANTAS
+        RECEBER VALORES E CONDIÇÕES
       </a>
     </>
   );
