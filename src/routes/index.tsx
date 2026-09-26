@@ -94,7 +94,7 @@ const BODY_HTML = `<div class="w">
 <figure class="vd-thumb"><img loading="lazy" decoding="async" width="1283" height="1600" src="/images/galleria-09.webp" alt="Perspectiva da torre única"><figcaption class="vd-label">Torre única</figcaption></figure>
 <figure class="vd-thumb vd-plan"><img loading="lazy" decoding="async" width="708" height="465" src="/images/galleria-11.webp" alt="Planta do apartamento de centro"><figcaption class="vd-label">Planta de meio</figcaption></figure>
 <figure class="vd-thumb vd-plan"><img loading="lazy" decoding="async" width="528" height="521" src="/images/galleria-12.webp" alt="Planta do apartamento de ponta"><figcaption class="vd-label">Planta de ponta</figcaption></figure>
-</div><button class="vd-btn vd-nx" id="vd-next" aria-label="Próxima foto">${icon(ChevronRight)}</button></div><p class="vd-disclaimer">Imagens e perspectivas artísticas meramente ilustrativas, sujeitas a alterações.</p><div class="gallery-conversion rv2"><h3>Gostou do que viu?</h3><p>Conheça as plantas disponíveis e descubra as condições para adquirir seu apartamento no Alto do Galleria II.</p><a href="#hero-form" class="btn bg">QUERO CONHECER AS CONDIÇÕES</a></div></div></section>
+</div><button class="vd-btn vd-nx" id="vd-next" aria-label="Próxima foto">${icon(ChevronRight)}</button></div><p class="vd-disclaimer">Imagens e perspectivas artísticas meramente ilustrativas, sujeitas a alterações.</p><div class="gallery-conversion rv2"><h3>Gostou do que viu?</h3><p>Conheça as condições para adquirir seu apartamento no Alto do Galleria II.</p><a href="#hero-form" class="btn bg">QUERO CONHECER AS CONDIÇÕES</a></div></div></section>
 
 <!-- 3.5. EXPERIÊNCIA IMERSIVA -->
 <section class="sec exp-sec" id="experiencia"><div class="c"><div class="sh"><span class="slb">Visite sem sair de casa</span><h2 class="st">Explore o decorado em <span class="nt">vídeo e 360°</span></h2><p class="sd">Conheça os ambientes com mais detalhes antes de agendar sua visita.</p></div><div class="exp-grid">
@@ -676,7 +676,7 @@ function Landing() {
               <span className="slb">Atendimento direto</span>
               <h2>Quer saber quanto custa seu novo apê?</h2>
               <p>
-                Receba as plantas, os valores disponíveis e as condições para conhecer as
+                Receba os valores disponíveis e as condições para conhecer as
                 possibilidades de compra do Alto do Galleria II.
               </p>
             </div>
@@ -809,7 +809,7 @@ function Landing() {
                 Quer saber quanto custa seu <span className="nt">novo apê?</span>
               </h2>
               <p className="lf-sub">
-                Receba as plantas, os valores disponíveis e as condições para conhecer as
+                Receba os valores disponíveis e as condições para conhecer as
                 possibilidades de compra do Alto do Galleria II.
               </p>
             </div>
