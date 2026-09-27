@@ -1,4 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
+import { parseSuccessfulCaptureResponse } from "./lead-contract";
 
 // ── Tipos do input ────────────────────────────────────────────────────────────
 
@@ -23,12 +24,6 @@ interface EnrichmentInput {
   updateToken: string;
   parcela?: string;
   objetivo?: string;
-}
-
-interface CaptureResponse {
-  success: boolean;
-  leadId: string;
-  updateToken: string;
 }
 
 const WEBHOOK_URL =
@@ -125,10 +120,7 @@ export const submitLead = createServerFn({ method: "POST" })
       throw new Error(`SmartLeads retornou ${response.status}: ${text}`);
     }
 
-    const result = JSON.parse(text) as CaptureResponse;
-    if (!result.leadId || !result.updateToken) {
-      throw new Error("SmartLeads não devolveu as credenciais de enriquecimento do lead.");
-    }
+    const result = parseSuccessfulCaptureResponse(text);
     return { ok: true, leadId: result.leadId, updateToken: result.updateToken };
   });
 

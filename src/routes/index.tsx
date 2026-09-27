@@ -29,7 +29,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { enrichLead, submitLead } from "../lib/lead-proxy";
 import { captureUtmParams, readUtmParams } from "../lib/utm";
 import { trackEvent } from "../lib/events";
-import { initPixel, fireLeadEvent } from "../lib/pixel";
+import { initMetaPixel, trackLeadOnce } from "../lib/pixel";
 import { TestimonialsCarousel } from "../components/TestimonialsCarousel";
 import { FamilyExperienceSection } from "../components/FamilyExperienceSection";
 import { TESTIMONIALS } from "../data/testimonials";
@@ -180,6 +180,8 @@ function Landing() {
 
   // flag para disparar form_start apenas uma vez por sessão de formulário
   const formStartedRef = useRef(false);
+  // Bloqueia um segundo submit antes mesmo de o React renderizar "sending".
+  const captureInFlightRef = useRef(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const target = e.target;
@@ -223,6 +225,8 @@ function Landing() {
   const handleSubmit = async (e: React.FormEvent, formOrigin: "hero" | "footer") => {
     e.preventDefault();
 
+    if (captureInFlightRef.current || captureCredentials) return;
+
     // Valida todos os campos de uma vez, sem sair ao primeiro erro
     const errs: typeof fieldErrors = {};
     if (!isValidName(form.nome)) errs.nome = "Informe seu nome.";
@@ -242,6 +246,7 @@ function Landing() {
       return;
     }
 
+    captureInFlightRef.current = true;
     setFormStatus("sending");
     try {
       const result = await submitLead({
@@ -263,7 +268,7 @@ function Landing() {
         utm_campaign: readUtmParams()["utm_campaign"],
       });
       // 2. Meta Pixel Lead — SOMENTE aqui, após resposta positiva do servidor
-      fireLeadEvent();
+      trackLeadOnce(result.leadId);
       // 3. O contato já está salvo; a etapa seguinte é opcional e só o enriquece.
       setCaptureCredentials({ leadId: result.leadId, updateToken: result.updateToken });
       setFormStatus("idle");
@@ -279,6 +284,8 @@ function Landing() {
       trackEvent("form_submit_error", { section: formOrigin, error_type: "server_error" });
       setFormStatus("error");
       // Não limpa o formulário em caso de erro
+    } finally {
+      captureInFlightRef.current = false;
     }
   };
 
@@ -313,8 +320,8 @@ function Landing() {
     // ── captura UTM/fbclid da URL ao montar ────────────────────────────────
     captureUtmParams();
 
-    // ── Meta Pixel — PageView + ViewContent ────────────────────────────────
-    initPixel();
+    // ── Meta Pixel — PageView somente no domínio publicado ─────────────────
+    initMetaPixel();
 
     // ── carrossel ──────────────────────────────────────────────────────────
     let ci = 0;
@@ -671,13 +678,17 @@ function Landing() {
               </picture>
             </div>
           </div>
-          <aside className="hero-lead-card" id="hero-form" aria-label="Solicitar VALORES E CONDIÇÕES">
+          <aside
+            className="hero-lead-card"
+            id="hero-form"
+            aria-label="Solicitar VALORES E CONDIÇÕES"
+          >
             <div className="hero-form-head">
               <span className="slb">Atendimento direto</span>
               <h2>Quer saber quanto custa seu novo apê?</h2>
               <p>
-                Receba os valores disponíveis e as condições para conhecer as
-                possibilidades de compra do Alto do Galleria II.
+                Receba os valores disponíveis e as condições para conhecer as possibilidades de
+                compra do Alto do Galleria II.
               </p>
             </div>
             {step === 1 ? (
@@ -782,7 +793,8 @@ function Landing() {
               >
                 QUERO RECEBER VALORES E CONDIÇÕES
               </a>
-              <a
+              {/* Botão WhatsApp desabilitado temporariamente */}
+              {/* <a
                 href={WA}
                 className="btn wa-btn carol-whatsapp"
                 target="_blank"
@@ -792,7 +804,7 @@ function Landing() {
                 }
               >
                 FALAR PELO WHATSAPP
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
@@ -809,8 +821,8 @@ function Landing() {
                 Quer saber quanto custa seu <span className="nt">novo apê?</span>
               </h2>
               <p className="lf-sub">
-                Receba os valores disponíveis e as condições para conhecer as
-                possibilidades de compra do Alto do Galleria II.
+                Receba os valores disponíveis e as condições para conhecer as possibilidades de
+                compra do Alto do Galleria II.
               </p>
             </div>
 
