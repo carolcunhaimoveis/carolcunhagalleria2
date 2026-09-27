@@ -942,10 +942,14 @@ h1.h2h1 {
 .hero-lead-card {
   scroll-margin-top: 90px;
   background: rgba(24, 20, 34, 0.94);
-  border: 1px solid rgba(167, 139, 250, 0.34);
+  border: 1px solid rgba(167, 139, 250, 0.3);
   border-radius: 20px;
   padding: clamp(22px, 3vw, 32px);
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.36);
+  position: relative;
+  isolation: isolate;
+  box-shadow:
+    0 0 0 1px rgba(191, 112, 255, 0.06),
+    0 18px 55px rgba(0, 0, 0, 0.22);
 }
 .hero-form-head {
   margin-bottom: 22px;
@@ -2458,7 +2462,8 @@ body[data-flare="pink"] {
     0 0 0 1px rgba(191, 112, 255, 0.06),
     0 18px 55px rgba(0, 0, 0, 0.22);
 }
-.lf-body::before {
+.lf-body::before,
+.hero-lead-card::before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -2494,7 +2499,8 @@ body[data-flare="pink"] {
   }
 }
 @media (prefers-reduced-motion: reduce) {
-  .lf-body::before {
+  .lf-body::before,
+  .hero-lead-card::before {
     animation: none;
     background: linear-gradient(
       135deg,
