@@ -2077,6 +2077,10 @@ body[data-flare="pink"] {
   gap: clamp(2.5rem, 6vw, 5rem);
   align-items: start;
 }
+#local {
+  /* O mapa lazy não deve se tornar a âncora automática de rolagem do navegador. */
+  overflow-anchor: none;
+}
 .loc-desc {
   color: var(--tx2);
   font-size: 0.98rem;
