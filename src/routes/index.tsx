@@ -589,7 +589,7 @@ function Landing() {
                 onChange={handleChange}
                 required
               />
-              <span>Concordo em receber informações e atendimento sobre este empreendimento.</span>
+              <span>Quero receber informações sobre o Alto do Galleria II.</span>
             </label>
             {fieldErrors.consentimento && (
               <span id={`${prefix}-err-consentimento`} className="lead-field-err" role="alert">
@@ -651,16 +651,10 @@ function Landing() {
                 Seu novo apartamento pertinho do <span className="nt">Galleria Shopping!</span>
               </h1>
               <p className="h2sub">
-                Apartamentos de 2 dormitórios, varanda integrada e lazer completo, em uma
-                localização estratégica de Campinas.
+                2 dormitórios <span aria-hidden="true">•</span> varanda integrada{" "}
+                <span aria-hidden="true">•</span> lazer completo
               </p>
               <p className="hero-area">Apartamentos de 41,39 a 42,66 m².</p>
-              <a href="#hero-form" className="btn bg h2cta">
-                QUERO RECEBER VALORES E CONDIÇÕES
-              </a>
-              <p className="h2micro">
-                Receba informações atualizadas e atendimento direto com Carol Cunha.
-              </p>
             </div>
             <div className="h2img">
               <picture>
@@ -686,10 +680,7 @@ function Landing() {
             <div className="hero-form-head">
               <span className="slb">Atendimento direto</span>
               <h2>Quer saber quanto custa seu novo apê?</h2>
-              <p>
-                Receba os valores disponíveis e as condições para conhecer as possibilidades de
-                compra do Alto do Galleria II.
-              </p>
+              <p>Receba valores e condições diretamente no WhatsApp.</p>
             </div>
             {step === 1 ? (
               renderCaptureForm("hero")

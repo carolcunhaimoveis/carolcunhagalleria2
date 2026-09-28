@@ -1285,17 +1285,65 @@ footer a:hover {
     min-width: 0;
   }
   .hero-presentation {
-    grid-template-columns: 1fr;
+    display: contents;
+  }
+  .hero-presentation .h2t {
+    order: 1;
+  }
+  .hero-lead-card {
+    order: 2;
   }
   .hero-presentation .h2img {
-    order: -1;
-    margin-bottom: 8px;
+    order: 3;
+    margin: 0;
   }
   .hero-lead-card .lead-form-fields {
     grid-template-columns: 1fr;
   }
   .hero2 {
     padding-bottom: 2rem;
+  }
+  .hero-conversion-layout {
+    gap: 24px;
+  }
+  .h2t {
+    display: flex;
+    flex-direction: column;
+  }
+  .h2ey {
+    margin-bottom: 12px;
+  }
+  h1.h2h1 {
+    font-size: clamp(2rem, 9vw, 2.75rem);
+    margin-bottom: 14px;
+  }
+  .h2sub {
+    margin-bottom: 12px;
+    line-height: 1.5;
+  }
+  .hero-area {
+    margin: 0;
+  }
+  .hero-lead-card {
+    padding: 22px 20px;
+  }
+  .hero-form-head {
+    margin-bottom: 18px;
+  }
+  .hero-form-head h2 {
+    margin-top: 6px;
+  }
+  .hero-lead-card .lead-form-fields {
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .hero-lead-card .lead-field input {
+    min-height: 48px;
+    padding-block: 12px;
+  }
+  .hero-lead-card .hero-carol-compact {
+    margin-top: 16px;
+    padding-top: 16px;
   }
   .h2h1,
   .hero-form-head h2 {
