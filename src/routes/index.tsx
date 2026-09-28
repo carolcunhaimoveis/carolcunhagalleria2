@@ -680,7 +680,6 @@ function Landing() {
             <div className="hero-form-head">
               <span className="slb">Atendimento direto</span>
               <h2>Quer saber quanto custa seu novo apê?</h2>
-              <p>Receba valores e condições diretamente no WhatsApp.</p>
             </div>
             {step === 1 ? (
               renderCaptureForm("hero")
@@ -704,8 +703,6 @@ function Landing() {
               />
               <p>
                 <strong>Seu atendimento será diretamente comigo!</strong>
-                <br />
-                Olá! Sou Carol Cunha. Deixe seu WhatsApp e vamos conversar!
               </p>
             </div>
           </aside>
@@ -1013,8 +1010,8 @@ function FlarePicker() {
           type="color"
           defaultValue={
             typeof window !== "undefined"
-              ? localStorage.getItem("flare-custom") || "#BF70FF"
-              : "#BF70FF"
+              ? localStorage.getItem("flare-custom") || "#d4a76a"
+              : "#d4a76a"
           }
           onChange={(e) => applyCustom(e.target.value)}
         />
