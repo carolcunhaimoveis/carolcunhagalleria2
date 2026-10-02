@@ -209,11 +209,11 @@ function PoliticaDePrivacidade() {
                     <li>
                       <strong>E-mail:</strong>{" "}
                       <a
-                        href="mailto:carolcunhagalleria2@gmail.com"
+                        href="mailto:carolcunhaimoveis@gmail.com"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        carolcunhagalleria2@gmail.com
+                        carolcunhaimoveis@gmail.com
                       </a>
                     </li>
                     <li>

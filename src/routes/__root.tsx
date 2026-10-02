@@ -100,10 +100,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   errorComponent: ErrorComponent,
 });
 
+const themeInitScript = `(function(){try{var t=localStorage.getItem('galleria-theme');var h=document.documentElement;if(t==='light'){h.dataset.theme='light';h.classList.remove('dark');}else{h.dataset.theme='dark';h.classList.add('dark');}}catch(e){}})();`;
+
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="pt-BR">
       <head>
+        {/* Theme init — must run before first paint to avoid flash */}
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <HeadContent />
       </head>
       <body>

@@ -32,6 +32,7 @@ import { trackEvent } from "../lib/events";
 import { initPixel, fireLeadEvent } from "../lib/pixel";
 import { TestimonialsCarousel } from "../components/TestimonialsCarousel";
 import { FamilyExperienceSection } from "../components/FamilyExperienceSection";
+import { ThemeToggle } from "../components/ThemeToggle";
 import { TESTIMONIALS } from "../data/testimonials";
 
 // ── Máscara de telefone: (00) 0000-0000 ou (00) 00000-0000 ──────────────────
@@ -634,6 +635,7 @@ function Landing() {
   return (
     <>
       <FlarePicker />
+      <ThemeToggle />
       <div dangerouslySetInnerHTML={{ __html: NAV_HTML }} />
       <section className="hero2" aria-labelledby="hero-title">
         <div className="c hero-conversion-layout">
