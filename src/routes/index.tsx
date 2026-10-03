@@ -583,7 +583,7 @@ function Landing() {
                 onChange={handleChange}
                 required
               />
-              <span>Concordo em receber informações e atendimento sobre este empreendimento.</span>
+              <span>Quero receber informações sobre o Casa Prado!</span>
             </label>
             {fieldErrors.consentimento && (
               <span id={`${prefix}-err-consentimento`} className="lead-field-err" role="alert">
@@ -705,7 +705,7 @@ function Landing() {
               <p>
                 <strong>Seu atendimento será diretamente comigo!</strong>
                 <br />
-                Olá! Sou Carol Cunha. Deixe seu WhatsApp e vamos conversar!
+                
               </p>
             </div>
           </aside>
