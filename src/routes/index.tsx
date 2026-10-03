@@ -29,7 +29,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { enrichLead, submitLead } from "../lib/lead-proxy";
 import { captureUtmParams, readUtmParams } from "../lib/utm";
 import { trackEvent } from "../lib/events";
-import { initPixel, fireLeadEvent } from "../lib/pixel";
+import { initMetaPixel, trackLeadOnce } from "../lib/pixel";
 import { TestimonialsCarousel } from "../components/TestimonialsCarousel";
 import { FamilyExperienceSection } from "../components/FamilyExperienceSection";
 import { ThemeToggle } from "../components/ThemeToggle";
@@ -95,7 +95,7 @@ const BODY_HTML = `<div class="w">
 <figure class="vd-thumb"><img loading="lazy" decoding="async" width="1283" height="1600" src="/images/galleria-09.webp" alt="Perspectiva da torre única"><figcaption class="vd-label">Torre única</figcaption></figure>
 <figure class="vd-thumb vd-plan"><img loading="lazy" decoding="async" width="708" height="465" src="/images/galleria-11.webp" alt="Planta do apartamento de centro"><figcaption class="vd-label">Planta de meio</figcaption></figure>
 <figure class="vd-thumb vd-plan"><img loading="lazy" decoding="async" width="528" height="521" src="/images/galleria-12.webp" alt="Planta do apartamento de ponta"><figcaption class="vd-label">Planta de ponta</figcaption></figure>
-</div><button class="vd-btn vd-nx" id="vd-next" aria-label="Próxima foto">${icon(ChevronRight)}</button></div><p class="vd-disclaimer">Imagens e perspectivas artísticas meramente ilustrativas, sujeitas a alterações.</p><div class="gallery-conversion rv2"><h3>Gostou do que viu?</h3><p>Conheça as plantas disponíveis e descubra as condições para adquirir seu apartamento no Alto do Galleria II.</p><a href="#hero-form" class="btn bg">QUERO CONHECER AS CONDIÇÕES</a></div></div></section>
+</div><button class="vd-btn vd-nx" id="vd-next" aria-label="Próxima foto">${icon(ChevronRight)}</button></div><p class="vd-disclaimer">Imagens e perspectivas artísticas meramente ilustrativas, sujeitas a alterações.</p><div class="gallery-conversion rv2"><h3>Gostou do que viu?</h3><p>Conheça as condições para adquirir seu apartamento no Alto do Galleria II.</p><a href="#hero-form" class="btn bg">QUERO CONHECER AS CONDIÇÕES</a></div></div></section>
 
 <!-- 3.5. EXPERIÊNCIA IMERSIVA -->
 <section class="sec exp-sec" id="experiencia"><div class="c"><div class="sh"><span class="slb">Visite sem sair de casa</span><h2 class="st">Explore o decorado em <span class="nt">vídeo e 360°</span></h2><p class="sd">Conheça os ambientes com mais detalhes antes de agendar sua visita.</p></div><div class="exp-grid">
@@ -181,13 +181,15 @@ function Landing() {
 
   // flag para disparar form_start apenas uma vez por sessão de formulário
   const formStartedRef = useRef(false);
+  // Bloqueia um segundo submit antes mesmo de o React renderizar "sending".
+  const captureInFlightRef = useRef(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const target = e.target;
     // form_start — dispara apenas na primeira interação
     if (!formStartedRef.current) {
       formStartedRef.current = true;
-      const origin = target.closest("form")?.dataset.formOrigin ?? "contato";
+      const origin = target.closest("form")?.dataset["formOrigin"] ?? "contato";
       trackEvent("form_start", { section: origin, label: target.name });
     }
     const { name, value } = target;
@@ -224,6 +226,8 @@ function Landing() {
   const handleSubmit = async (e: React.FormEvent, formOrigin: "hero" | "footer") => {
     e.preventDefault();
 
+    if (captureInFlightRef.current || captureCredentials) return;
+
     // Valida todos os campos de uma vez, sem sair ao primeiro erro
     const errs: typeof fieldErrors = {};
     if (!isValidName(form.nome)) errs.nome = "Informe seu nome.";
@@ -243,6 +247,7 @@ function Landing() {
       return;
     }
 
+    captureInFlightRef.current = true;
     setFormStatus("sending");
     try {
       const result = await submitLead({
@@ -264,7 +269,7 @@ function Landing() {
         utm_campaign: readUtmParams()["utm_campaign"],
       });
       // 2. Meta Pixel Lead — SOMENTE aqui, após resposta positiva do servidor
-      fireLeadEvent();
+      trackLeadOnce(result.leadId);
       // 3. O contato já está salvo; a etapa seguinte é opcional e só o enriquece.
       setCaptureCredentials({ leadId: result.leadId, updateToken: result.updateToken });
       setFormStatus("idle");
@@ -280,6 +285,8 @@ function Landing() {
       trackEvent("form_submit_error", { section: formOrigin, error_type: "server_error" });
       setFormStatus("error");
       // Não limpa o formulário em caso de erro
+    } finally {
+      captureInFlightRef.current = false;
     }
   };
 
@@ -314,8 +321,8 @@ function Landing() {
     // ── captura UTM/fbclid da URL ao montar ────────────────────────────────
     captureUtmParams();
 
-    // ── Meta Pixel — PageView + ViewContent ────────────────────────────────
-    initPixel();
+    // ── Meta Pixel — PageView somente no domínio publicado ─────────────────
+    initMetaPixel();
 
     // ── carrossel ──────────────────────────────────────────────────────────
     let ci = 0;
@@ -583,7 +590,7 @@ function Landing() {
                 onChange={handleChange}
                 required
               />
-              <span>Quero receber informações sobre o Casa Prado!</span>
+              <span>Quero receber informações sobre o Alto do Galleria II.</span>
             </label>
             {fieldErrors.consentimento && (
               <span id={`${prefix}-err-consentimento`} className="lead-field-err" role="alert">
@@ -604,7 +611,7 @@ function Landing() {
                 Enviando…
               </>
             ) : (
-              "QUERO RECEBER VALORES E PLANTAS"
+              "QUERO RECEBER VALORES E CONDIÇÕES"
             )}
           </button>
           {formStatus === "error" && (
@@ -646,16 +653,10 @@ function Landing() {
                 Seu novo apartamento pertinho do <span className="nt">Galleria Shopping!</span>
               </h1>
               <p className="h2sub">
-                Apartamentos de 2 dormitórios, varanda integrada e lazer completo, em uma
-                localização estratégica de Campinas.
+                2 dormitórios <span aria-hidden="true">•</span> varanda integrada{" "}
+                <span aria-hidden="true">•</span> lazer completo
               </p>
               <p className="hero-area">Apartamentos de 41,39 a 42,66 m².</p>
-              <a href="#hero-form" className="btn bg h2cta">
-                QUERO RECEBER VALORES E PLANTAS
-              </a>
-              <p className="h2micro">
-                Receba informações atualizadas e atendimento direto com Carol Cunha.
-              </p>
             </div>
             <div className="h2img">
               <picture>
@@ -673,14 +674,14 @@ function Landing() {
               </picture>
             </div>
           </div>
-          <aside className="hero-lead-card" id="hero-form" aria-label="Solicitar valores e plantas">
+          <aside
+            className="hero-lead-card"
+            id="hero-form"
+            aria-label="Solicitar VALORES E CONDIÇÕES"
+          >
             <div className="hero-form-head">
               <span className="slb">Atendimento direto</span>
               <h2>Quer saber quanto custa seu novo apê?</h2>
-              <p>
-                Receba as plantas, os valores disponíveis e as condições para conhecer as
-                possibilidades de compra do Alto do Galleria II.
-              </p>
             </div>
             {step === 1 ? (
               renderCaptureForm("hero")
@@ -704,8 +705,6 @@ function Landing() {
               />
               <p>
                 <strong>Seu atendimento será diretamente comigo!</strong>
-                <br />
-                
               </p>
             </div>
           </aside>
@@ -782,9 +781,10 @@ function Landing() {
                   })
                 }
               >
-                QUERO RECEBER VALORES E PLANTAS
+                QUERO RECEBER VALORES E CONDIÇÕES
               </a>
-              <a
+              {/* Botão WhatsApp desabilitado temporariamente */}
+              {/* <a
                 href={WA}
                 className="btn wa-btn carol-whatsapp"
                 target="_blank"
@@ -794,7 +794,7 @@ function Landing() {
                 }
               >
                 FALAR PELO WHATSAPP
-              </a>
+              </a> */}
             </div>
           </div>
         </div>
@@ -811,8 +811,8 @@ function Landing() {
                 Quer saber quanto custa seu <span className="nt">novo apê?</span>
               </h2>
               <p className="lf-sub">
-                Receba as plantas, os valores disponíveis e as condições para conhecer as
-                possibilidades de compra do Alto do Galleria II.
+                Receba os valores disponíveis e as condições para conhecer as possibilidades de
+                compra do Alto do Galleria II.
               </p>
             </div>
 
@@ -945,9 +945,9 @@ function Landing() {
         href="#contato"
         className="cta-sticky-mobile"
         id="cta-sticky"
-        aria-label="Receber valores e plantas"
+        aria-label="Receber VALORES E CONDIÇÕES"
       >
-        RECEBER VALORES E PLANTAS
+        RECEBER VALORES E CONDIÇÕES
       </a>
     </>
   );
@@ -1012,8 +1012,8 @@ function FlarePicker() {
           type="color"
           defaultValue={
             typeof window !== "undefined"
-              ? localStorage.getItem("flare-custom") || "#BF70FF"
-              : "#BF70FF"
+              ? localStorage.getItem("flare-custom") || "#d4a76a"
+              : "#d4a76a"
           }
           onChange={(e) => applyCustom(e.target.value)}
         />

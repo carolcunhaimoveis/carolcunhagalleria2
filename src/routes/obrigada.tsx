@@ -73,9 +73,9 @@ function Obrigada() {
                 dúvidas.
               </p>
 
-              <div className="btn bg tks-cta" role="status">
-                Obrigado pelo seu contato
-              </div>
+              <Link to="/" className="btn bg tks-cta">
+                Obrigada pelo seu contato
+              </Link>
 
               {/* Texto secundário */}
               <p className="tks-secondary">Em breve entrarei em contato pelos dados informados.</p>
