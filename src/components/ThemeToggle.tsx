@@ -5,7 +5,7 @@ type Theme = "dark" | "light";
 
 function applyTheme(theme: Theme) {
   const h = document.documentElement;
-  h.dataset.theme = theme;
+  h.dataset["theme"] = theme;
   if (theme === "dark") {
     h.classList.add("dark");
   } else {

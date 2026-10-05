@@ -83,18 +83,18 @@ const BODY_HTML = `<div class="w">
 
 <!-- 3. SEÇÃO VISUAL DE DESEJO -->
 <section class="sec vd-sec" id="galeria"><div class="c"><div class="sh"><span class="slb">O Empreendimento em Imagens</span><h2 class="st">Conheça cada <span class="nt">ambiente</span></h2><p class="sd">Perspectivas artísticas do decorado, áreas comuns, fachada e plantas.</p></div><div class="vd-wrap"><button class="vd-btn vd-pv" id="vd-prev" aria-label="Foto anterior">${icon(ChevronLeft)}</button><div class="vd-grid rv2" id="vd-track" aria-label="Galeria de imagens do Alto do Galleria II">
-<figure class="vd-main"><img loading="lazy" decoding="async" width="1283" height="1600" src="/images/galleria-10.webp" alt="Fachada e entrada do Alto do Galleria II"><figcaption class="vd-label">Fachada e entrada</figcaption></figure>
-<figure class="vd-thumb"><img loading="lazy" decoding="async" width="1600" height="900" src="/images/galleria-02.webp" alt="Sala de estar do apartamento decorado"><figcaption class="vd-label">Sala de estar</figcaption></figure>
-<figure class="vd-thumb"><img loading="lazy" decoding="async" width="1600" height="1283" src="/images/galleria-03.webp" alt="Dormitório principal do apartamento decorado"><figcaption class="vd-label">Dormitório principal</figcaption></figure>
-<figure class="vd-thumb"><img loading="lazy" decoding="async" width="1600" height="900" src="/images/galleria-04.webp" alt="Segundo dormitório do apartamento decorado"><figcaption class="vd-label">Segundo dormitório</figcaption></figure>
-<figure class="vd-thumb"><img loading="lazy" decoding="async" width="1283" height="1600" src="/images/galleria-01.webp" alt="Banheiro do apartamento decorado"><figcaption class="vd-label">Banheiro</figcaption></figure>
-<figure class="vd-thumb"><img loading="lazy" decoding="async" width="1600" height="900" src="/images/galleria-08.webp" alt="Piscina adulto e deck"><figcaption class="vd-label">Piscina adulto e deck</figcaption></figure>
-<figure class="vd-thumb"><img loading="lazy" decoding="async" width="1600" height="900" src="/images/galleria-06.webp" alt="Salão gourmet"><figcaption class="vd-label">Salão gourmet</figcaption></figure>
-<figure class="vd-thumb"><img loading="lazy" decoding="async" width="1600" height="900" src="/images/galleria-07.webp" alt="Academia equipada"><figcaption class="vd-label">Academia</figcaption></figure>
-<figure class="vd-thumb"><img loading="lazy" decoding="async" width="1600" height="900" src="/images/galleria-05.webp" alt="Playground"><figcaption class="vd-label">Playground</figcaption></figure>
-<figure class="vd-thumb"><img loading="lazy" decoding="async" width="1283" height="1600" src="/images/galleria-09.webp" alt="Perspectiva da torre única"><figcaption class="vd-label">Torre única</figcaption></figure>
-<figure class="vd-thumb vd-plan"><img loading="lazy" decoding="async" width="708" height="465" src="/images/galleria-11.webp" alt="Planta do apartamento de centro"><figcaption class="vd-label">Planta de meio</figcaption></figure>
-<figure class="vd-thumb vd-plan"><img loading="lazy" decoding="async" width="528" height="521" src="/images/galleria-12.webp" alt="Planta do apartamento de ponta"><figcaption class="vd-label">Planta de ponta</figcaption></figure>
+<figure class="vd-main"><img loading="lazy" decoding="async" width="1600" height="1600" data-src="/images/galleria-10.webp" alt="Fachada e entrada do Alto do Galleria II" sizes="(max-width: 600px) 78vw, (max-width: 1200px) 38vw, 520px"><figcaption class="vd-label">Fachada e entrada</figcaption></figure>
+<figure class="vd-thumb"><img loading="lazy" decoding="async" width="1600" height="900" data-src="/images/galleria-02.webp" alt="Sala de estar do apartamento decorado" sizes="(max-width: 600px) 78vw, (max-width: 1200px) 38vw, 520px"><figcaption class="vd-label">Sala de estar</figcaption></figure>
+<figure class="vd-thumb"><img loading="lazy" decoding="async" width="1600" height="1283" data-src="/images/galleria-03.webp" alt="Dormitório principal do apartamento decorado" sizes="(max-width: 600px) 78vw, (max-width: 1200px) 38vw, 520px"><figcaption class="vd-label">Dormitório principal</figcaption></figure>
+<figure class="vd-thumb"><img loading="lazy" decoding="async" width="1600" height="900" data-src="/images/galleria-04.webp" alt="Segundo dormitório do apartamento decorado" sizes="(max-width: 600px) 78vw, (max-width: 1200px) 38vw, 520px"><figcaption class="vd-label">Segundo dormitório</figcaption></figure>
+<figure class="vd-thumb"><img loading="lazy" decoding="async" width="1283" height="1600" data-src="/images/galleria-01.webp" alt="Banheiro do apartamento decorado" sizes="(max-width: 600px) 78vw, (max-width: 1200px) 38vw, 520px"><figcaption class="vd-label">Banheiro</figcaption></figure>
+<figure class="vd-thumb"><img loading="lazy" decoding="async" width="1600" height="900" data-src="/images/galleria-08.webp" alt="Piscina adulto e deck" sizes="(max-width: 600px) 78vw, (max-width: 1200px) 38vw, 520px"><figcaption class="vd-label">Piscina adulto e deck</figcaption></figure>
+<figure class="vd-thumb"><img loading="lazy" decoding="async" width="1600" height="900" data-src="/images/galleria-06.webp" alt="Salão gourmet" sizes="(max-width: 600px) 78vw, (max-width: 1200px) 38vw, 520px"><figcaption class="vd-label">Salão gourmet</figcaption></figure>
+<figure class="vd-thumb"><img loading="lazy" decoding="async" width="1600" height="900" data-src="/images/galleria-07.webp" alt="Academia equipada" sizes="(max-width: 600px) 78vw, (max-width: 1200px) 38vw, 520px"><figcaption class="vd-label">Academia</figcaption></figure>
+<figure class="vd-thumb"><img loading="lazy" decoding="async" width="1600" height="900" data-src="/images/galleria-05.webp" alt="Playground" sizes="(max-width: 600px) 78vw, (max-width: 1200px) 38vw, 520px"><figcaption class="vd-label">Playground</figcaption></figure>
+<figure class="vd-thumb"><img loading="lazy" decoding="async" width="1283" height="1600" data-src="/images/galleria-09.webp" alt="Perspectiva da torre única" sizes="(max-width: 600px) 78vw, (max-width: 1200px) 38vw, 520px"><figcaption class="vd-label">Torre única</figcaption></figure>
+<figure class="vd-thumb vd-plan"><img loading="lazy" decoding="async" width="708" height="465" data-src="/images/galleria-11.webp" alt="Planta do apartamento de centro" sizes="(max-width: 600px) 78vw, (max-width: 1200px) 38vw, 520px"><figcaption class="vd-label">Planta de meio</figcaption></figure>
+<figure class="vd-thumb vd-plan"><img loading="lazy" decoding="async" width="528" height="521" data-src="/images/galleria-12.webp" alt="Planta do apartamento de ponta" sizes="(max-width: 600px) 78vw, (max-width: 1200px) 38vw, 520px"><figcaption class="vd-label">Planta de ponta</figcaption></figure>
 </div><button class="vd-btn vd-nx" id="vd-next" aria-label="Próxima foto">${icon(ChevronRight)}</button></div><p class="vd-disclaimer">Imagens e perspectivas artísticas meramente ilustrativas, sujeitas a alterações.</p><div class="gallery-conversion rv2"><h3>Gostou do que viu?</h3><p>Conheça as condições para adquirir seu apartamento no Alto do Galleria II.</p><a href="#hero-form" class="btn bg">QUERO CONHECER AS CONDIÇÕES</a></div></div></section>
 
 <!-- 3.5. EXPERIÊNCIA IMERSIVA -->
@@ -104,7 +104,7 @@ const BODY_HTML = `<div class="w">
 </div></div></section>
 
 <!-- 4. LAZER E INFRAESTRUTURA -->
-<section class="sec" id="lazer"><div class="c"><div class="sh"><span class="slb">Lazer &amp; Infraestrutura</span><h2 class="st">Conforto para <span class="nt">todos os dias</span></h2><p class="sd">Espaços planejados para convivência, bem-estar e qualidade de vida.</p></div><div class="lz-grid"><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="480" height="300" src="/images/galleria-08.webp" alt="Piscina adulto e deck"></div><div class="lz-info"><span class="lz-icon">${icon(Waves)}</span><h3>Piscinas</h3><p>Piscinas adulto e infantil integradas ao deck.</p></div></div><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="480" height="300" src="/images/galleria-06.webp" alt="Salão Gourmet"></div><div class="lz-info"><span class="lz-icon">${icon(Utensils)}</span><h3>Salão Gourmet</h3><p>Espaço com churrasqueira para receber bem.</p></div></div><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="480" height="300" src="/images/galleria-07.webp" alt="Academia"></div><div class="lz-info"><span class="lz-icon">${icon(Dumbbell)}</span><h3>Academia</h3><p>Ambiente planejado para uma rotina mais ativa.</p></div></div><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="480" height="300" src="/images/galleria-05.webp" alt="Playground"></div><div class="lz-info"><span class="lz-icon">${icon(Baby)}</span><h3>Playground</h3><p>Diversão e convivência para as crianças.</p></div></div></div><div class="lz-infra rv2"><div class="lz-infra-head"><span class="slb">Diferenciais</span><h3 class="lz-infra-title">Detalhes pensados para o dia a dia</h3></div><div class="lz-infra-grid"><div class="lz-inf-item"><span>${icon(ShieldCheck)}</span><span>Guarita e acesso controlado</span></div><div class="lz-inf-item"><span>${icon(Accessibility)}</span><span>Acessos separados para pedestres e veículos</span></div><div class="lz-inf-item"><span>${icon(ArrowUpDown)}</span><span>Dois elevadores</span></div><div class="lz-inf-item"><span>${icon(Snowflake)}</span><span>Previsão para ar-condicionado no quarto do casal</span></div></div></div><div class="lz-cta"><a href="#hero-form" class="btn bg">QUERO CONHECER AS CONDIÇÕES</a></div></div></section>
+<section class="sec" id="lazer"><div class="c"><div class="sh"><span class="slb">Lazer &amp; Infraestrutura</span><h2 class="st">Conforto para <span class="nt">todos os dias</span></h2><p class="sd">Espaços planejados para convivência, bem-estar e qualidade de vida.</p></div><div class="lz-grid"><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="1600" height="900" src="/images/galleria-08.webp" alt="Piscina adulto e deck" sizes="(max-width: 768px) 100vw, 50vw"></div><div class="lz-info"><span class="lz-icon">${icon(Waves)}</span><h3>Piscinas</h3><p>Piscinas adulto e infantil integradas ao deck.</p></div></div><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="1600" height="900" src="/images/galleria-06.webp" alt="Salão Gourmet" sizes="(max-width: 768px) 100vw, 50vw"></div><div class="lz-info"><span class="lz-icon">${icon(Utensils)}</span><h3>Salão Gourmet</h3><p>Espaço com churrasqueira para receber bem.</p></div></div><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="1600" height="900" src="/images/galleria-07.webp" alt="Academia" sizes="(max-width: 768px) 100vw, 50vw"></div><div class="lz-info"><span class="lz-icon">${icon(Dumbbell)}</span><h3>Academia</h3><p>Ambiente planejado para uma rotina mais ativa.</p></div></div><div class="lz-item rv2"><div class="lz-img"><img loading="lazy" decoding="async" width="1600" height="900" src="/images/galleria-05.webp" alt="Playground" sizes="(max-width: 768px) 100vw, 50vw"></div><div class="lz-info"><span class="lz-icon">${icon(Baby)}</span><h3>Playground</h3><p>Diversão e convivência para as crianças.</p></div></div></div><div class="lz-infra rv2"><div class="lz-infra-head"><span class="slb">Diferenciais</span><h3 class="lz-infra-title">Detalhes pensados para o dia a dia</h3></div><div class="lz-infra-grid"><div class="lz-inf-item"><span>${icon(ShieldCheck)}</span><span>Guarita e acesso controlado</span></div><div class="lz-inf-item"><span>${icon(Accessibility)}</span><span>Acessos separados para pedestres e veículos</span></div><div class="lz-inf-item"><span>${icon(ArrowUpDown)}</span><span>Dois elevadores</span></div><div class="lz-inf-item"><span>${icon(Snowflake)}</span><span>Previsão para ar-condicionado no quarto do casal</span></div></div></div><div class="lz-cta"><a href="#hero-form" class="btn bg">QUERO CONHECER AS CONDIÇÕES</a></div></div></section>
 
 <!-- 5. LOCALIZAÇÃO -->
 <section class="sec" id="local"><div class="c"><div class="loc-layout"><div class="loc-text"><span class="slb">Localização</span><h2 class="st">Perto do que importa em <span class="nt">Campinas</span></h2><p class="loc-desc">No Jardim Conceição, próximo ao Galleria Shopping, à Lagoa do Taquaral e à Rodovia Dom Pedro I.</p><div class="loc-addr rv2"><span class="loc-pin">${icon(MapPin)}</span><div><strong>Jardim Conceição — Campinas/SP</strong><span>Rua Antônio Pavin, 227</span></div></div><div class="loc-cards"><div class="loc-card rv2"><span class="loc-time">1,8 km</span><span class="loc-name">Galleria Shopping</span><span class="loc-via">Compras e gastronomia</span></div><div class="loc-card rv2"><span class="loc-time">2 km</span><span class="loc-name">Lagoa do Taquaral</span><span class="loc-via">Lazer ao ar livre</span></div><div class="loc-card rv2"><span class="loc-time">1,2 km</span><span class="loc-name">Dalben</span><span class="loc-via">Supermercado</span></div><div class="loc-card rv2"><span class="loc-time">50 m</span><span class="loc-name">Posto de saúde</span><span class="loc-via">Serviços próximos</span></div></div><div class="loc-cta"><a href="#contato" class="btn bg">QUERO RECEBER VALORES E CONDIÇÕES</a></div></div><div class="loc-map"><iframe title="Localização Alto do Galleria II" src="https://www.google.com/maps?q=Rua%20Ant%C3%B4nio%20Pavin%2C%20227%2C%20Jardim%20Concei%C3%A7%C3%A3o%2C%20Campinas%2C%20SP&output=embed" style="border:0;width:100%;height:100%;display:block" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div></div></section>
@@ -146,7 +146,15 @@ export const Route = createFileRoute("/")({
       {
         rel: "preload",
         as: "image",
-        href: "/images/galleria-10.webp",
+        href: "/images/Galleria-16x9.webp",
+        media: "(max-width: 900px)",
+        fetchPriority: "high",
+      },
+      {
+        rel: "preload",
+        as: "image",
+        href: "/images/Galleria-3x4.webp",
+        media: "(min-width: 901px)",
         fetchPriority: "high",
       },
       {
@@ -323,6 +331,33 @@ function Landing() {
 
     // ── Meta Pixel — PageView somente no domínio publicado ─────────────────
     initMetaPixel();
+
+    // ── lazy load carousel/gallery images (data-src → src) ─────────────────
+    const lazyImgs = Array.from(document.querySelectorAll<HTMLImageElement>("img[data-src]"));
+    let lazyObs: IntersectionObserver | undefined;
+    if ("IntersectionObserver" in window) {
+      lazyObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const img = entry.target as HTMLImageElement;
+            const s = img.dataset["src"];
+            if (s) {
+              img.src = s;
+              delete img.dataset["src"];
+            }
+            lazyObs?.unobserve(img);
+          });
+        },
+        { rootMargin: "0px 300px" },
+      );
+      lazyImgs.forEach((img) => lazyObs!.observe(img));
+    } else {
+      lazyImgs.forEach((img) => {
+        const s = img.dataset["src"];
+        if (s) img.src = s;
+      });
+    }
 
     // ── carrossel ──────────────────────────────────────────────────────────
     let ci = 0;
@@ -516,6 +551,7 @@ function Landing() {
     return () => {
       if (window.__trevisoInterval) window.clearInterval(window.__trevisoInterval);
       if (vdAutoInterval) window.clearInterval(vdAutoInterval);
+      lazyObs?.disconnect();
       stickyOb?.disconnect();
       formViewOb?.disconnect();
       ob.disconnect();
@@ -660,14 +696,14 @@ function Landing() {
             </div>
             <div className="h2img">
               <picture>
-                <source media="(max-width: 900px)" srcSet="/images/Galleria-16x9.png" />
+                <source media="(max-width: 900px)" srcSet="/images/Galleria-16x9.webp" />
                 <img
                   loading="eager"
                   fetchPriority="high"
                   decoding="sync"
-                  width={720}
-                  height={540}
-                  src="/images/Galleria-3x4.png"
+                  width={1086}
+                  height={1448}
+                  src="/images/Galleria-3x4.webp"
                   alt="Fachada e entrada do Alto do Galleria II"
                   sizes="(max-width:900px) 100vw, 42vw"
                 />
@@ -698,9 +734,12 @@ function Landing() {
             )}
             <div className="hero-carol-compact">
               <img
-                src="/images/Carol9.png"
-                width={64}
-                height={64}
+                src="/images/Carol-avatar.webp"
+                width={128}
+                height={128}
+                loading="eager"
+                fetchPriority="low"
+                decoding="async"
                 alt="Carol Cunha, corretora de imóveis"
               />
               <p>
@@ -717,17 +756,17 @@ function Landing() {
         description="Espaços contemporâneos para compartilhar a rotina, contemplar a cidade e aproveitar cada momento em família."
         images={[
           {
-            src: "/images/family-visit-01.png",
+            src: "/images/family-visit-01.webp",
             alt: "Família conhecendo os ambientes do apartamento",
             caption: "Ambientes que acolhem a rotina",
           },
           {
-            src: "/images/family-visit-02.png",
+            src: "/images/family-visit-02.webp",
             alt: "Família contemplando a vista da varanda",
             caption: "Uma nova vista para Campinas",
           },
           {
-            src: "/images/family-visit-03.png",
+            src: "/images/family-visit-03.webp",
             alt: "Família conhecendo a área de lazer do condomínio",
             caption: "Lazer para aproveitar juntos",
           },
@@ -747,9 +786,9 @@ function Landing() {
               <img
                 loading="lazy"
                 decoding="async"
-                width={400}
-                height={480}
-                src="/images/Carol9.png"
+                width={1086}
+                height={1448}
+                src="/images/Carol9.webp"
                 alt="Carol Cunha — Corretora de Imóveis"
                 className="carol-photo"
                 sizes="(max-width:900px) 60vw, 380px"

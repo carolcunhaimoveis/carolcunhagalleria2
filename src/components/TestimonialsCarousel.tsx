@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 
 export interface Testimonial {
@@ -21,6 +21,37 @@ export function TestimonialsCarousel({
   testimonials,
 }: TestimonialsCarouselProps) {
   const trackRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return () => {};
+    const imgs = Array.from(track.querySelectorAll<HTMLImageElement>("img[data-src]"));
+    if ("IntersectionObserver" in window) {
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const img = entry.target as HTMLImageElement;
+            const s = img.dataset["src"];
+            if (s) {
+              img.src = s;
+              delete img.dataset["src"];
+            }
+            obs.unobserve(img);
+          });
+        },
+        { root: track, rootMargin: "0px 300px" },
+      );
+      imgs.forEach((img) => obs.observe(img));
+      return () => obs.disconnect();
+    }
+    // Fallback: load all immediately
+    imgs.forEach((img) => {
+      const s = img.dataset["src"];
+      if (s) img.src = s;
+    });
+    return () => {};
+  }, []);
 
   const move = (direction: -1 | 1) => {
     const track = trackRef.current;
@@ -61,9 +92,11 @@ export function TestimonialsCarousel({
                 >
                   <img
                     className="mb-4 size-24 rounded-full border-2 border-[var(--gd)] object-cover shadow-[0_0_0_5px_rgba(167,139,250,.10)]"
-                    src={testimonial.image}
+                    data-src={testimonial.image}
                     alt={`Foto ilustrativa de ${testimonial.name}`}
                     loading="lazy"
+                    decoding="async"
+                    fetchPriority="low"
                     width={96}
                     height={96}
                   />
