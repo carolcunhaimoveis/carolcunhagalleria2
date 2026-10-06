@@ -91,6 +91,7 @@ export const submitLead = createServerFn({ method: "POST" })
       name: data.name,
       phone: data.phone,
       email: data.email || "",
+      propertyInterest: "Apartamento",
       notes,
       landingPage: data.landingPage || "https://carolcunhagalleria2.lovable.app",
 
