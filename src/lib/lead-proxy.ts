@@ -26,8 +26,12 @@ interface EnrichmentInput {
   objetivo?: string;
 }
 
-const WEBHOOK_URL =
-  "https://gkpmzsvhvwtotdwtryup.supabase.co/functions/v1/webhook-leads?source=galleria2&enterprise=Alto%20do%20Galleria%20II";
+// ── Configuração centralizada desta Landing Page ──────────────────────────────
+// A LP identifica-se apenas pelo siteKey. O SmartLeads consulta site_integrations
+// e resolve enterprise, origin, etapa inicial e tags automaticamente.
+// Não colocar enterprise, pipeline, etapa ou tags internas aqui.
+const SMART_LEADS_SITE_KEY = "galleria2";
+const WEBHOOK_URL = "https://gkpmzsvhvwtotdwtryup.supabase.co/functions/v1/webhook-leads";
 
 // ── Server Function ───────────────────────────────────────────────────────────
 
@@ -76,30 +80,31 @@ export const submitLead = createServerFn({ method: "POST" })
 
     const notes = noteLines.join(" | ");
 
-    // ── Payload estruturado (novo formato) ────────────────────────────────
-    // Campos de primeiro nível — a Edge Function os lê diretamente
-    // sem precisar parsear texto do campo "notes".
+    // ── Payload estruturado (nova arquitetura siteKey) ───────────────────────
+    // A LP envia apenas siteKey e dados do lead/marketing.
+    // O Smart Leads resolve enterprise, origin, etapa e tags via site_integrations.
     const payload = {
-      // Campos existentes (retrocompatíveis)
+      // Identificador da integração (nova arquitetura — substitui ?source= e ?enterprise=)
+      siteKey: SMART_LEADS_SITE_KEY,
+
+      // Dados do lead
       name: data.name,
       phone: data.phone,
       email: data.email || "",
-      propertyInterest: "Apartamento 2 Dormitórios",
-      familyIncome: 0,
-      fgtsValue: 0,
       notes,
-      source: "carolcunhagalleria2.com.br",
+      landingPage: data.landingPage || "https://carolcunhagalleria2.lovable.app",
 
-      // Campos de marketing estruturados (novos)
+      // Campos de qualificação opcionais
       objective: data.objetivo || undefined,
       requestedInfo: data.parcela || undefined,
+
+      // UTMs e atribuição
       utmSource,
       utmMedium,
       utmCampaign,
       utmContent,
       utmTerm,
       fbclid,
-      landingPage: data.landingPage || "https://carolcunhagalleria2.lovable.app",
     };
 
     // Remove chaves com valor undefined para não poluir o JSON
